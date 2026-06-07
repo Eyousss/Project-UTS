@@ -1,0 +1,225 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+footer {
+    text-align: center;
+    background-color: #361818;
+    color: white;
+    padding: 20px;
+    margin-top: auto;
+}
+
+.sosmed-grup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-top: 12px;
+}
+
+.sosmed {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: white;
+}
+
+a{
+    text-decoration: none;
+}
+
+#feedback-section {
+    
+    margin: 0 auto;
+    padding: 60px 80px;
+}
+
+.feedback-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.feedback-title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #222;
+}
+
+.feedback-subtitle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+.feedback-subtitle p {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.25rem;
+    text-align: center;
+    color: #000000;
+}
+
+.feedback-card {
+    background: #e6e6e6;
+    border: 1px solid rgba(60, 30, 10, 0.12);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 16px;
+}
+
+.questions{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #000000;
+    margin-bottom: 0.5rem;
+}
+
+.kepuasan-row, .kesulitan-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.skor-kepuasan, .skor-kesulitan {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    border: 0.5px solid rgba(60, 30, 10, 0.12);
+    background: #F0EDE9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: #7A6555;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    user-select: none;
+}
+.skor-kepuasan:hover, .skor-kesulitan:hover {
+    border-color: #C4845A;
+    color: #C4845A;
+}
+
+
+.skor-kepuasan.active, .skor-kesulitan.active {
+    background: #C4845A;
+    border-color: #C4845A;
+    color: #fff;
+}
+
+.label-kepuasan, .label-kesulitan{
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.label-kepuasan p, .label-kesulitan p{
+    font-size: 0.75rem;
+    color: #7A6555;
+}
+
+textarea {
+    width: 100%;
+    min-height: 100px;
+    resize: vertical;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 0.5px solid rgba(60, 30, 10, 0.12);
+    background: #f0ede9;
+    color: #1c1008;
+    outline: none;
+    transition: border-color 0.15s;
+    line-height: 1.6;
+}
+
+.submit-btn {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 8px;
+}
+ 
+.btn-submit {
+    background-color: #C4845A;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 13px 36px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+ 
+.btn-submit:hover {
+    background: #A8663E;
+    box-shadow: 0 4px 12px rgba(164, 100, 58, 0.35);
+    transform: translateY(-1px);
+}
+ 
+.btn-submit:active { transform: scale(0.98); }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 50px ;
+  height: 60px;
+  background-color: #361818;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.logo-text {
+    font-family: Quicksand, sans-serif;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    transition: 0.3s;
+    letter-spacing: 1px;
+}
+
+.menu li a:hover {
+    color: rgb(113, 26, 26);
+}
+
+.menu li a.active-page {
+    border-bottom: 2px solid white;
+    padding-bottom: 3px;
+}

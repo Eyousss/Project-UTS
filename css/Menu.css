@@ -1,0 +1,183 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+}
+
+footer {
+    text-align: center;
+    background-color: #361818;
+    color: white;
+    padding: 20px;
+    margin-top: auto;
+}
+
+.sosmed-grup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-top: 12px;
+}
+
+.sosmed {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: white;
+}
+
+a{
+    text-decoration: none;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 50px ;
+  height: 60px;
+  background-color: #361818;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.logo-text {
+    font-family: Quicksand, sans-serif;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    transition: 0.3s;
+    letter-spacing: 1px;
+}
+
+.menu li a:hover {
+    color: rgb(113, 26, 26);
+}
+
+.menu li a.active-page {
+    border-bottom: 2px solid white;
+    padding-bottom: 3px;
+}
+
+#menu-section {
+    padding: 60px 0;
+}
+
+.menu-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.menu-title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #222;
+}
+
+.menu-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 2.5rem;
+}
+
+.tab-btn {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.5rem 1.6rem;
+    border: 1px solid #ccc;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #000000;
+}
+
+.tab-btn:hover,
+.tab-btn.active {
+    background: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+}
+
+@media (max-width: 1024px) {
+    .menu-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .menu-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.menu-card {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.menu-card:hover {
+    transform: translateY(-4px);
+}
+
+.menu-card img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    display: block;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+}
+
+.menu-card p {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #222;
+}
+
+
+.menu-card.hidden {
+    display: none;
+}

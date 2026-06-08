@@ -2,7 +2,7 @@
 <html lang="en">
 <?php 
     $page_title = 'Galeri - Noma Coffee & Taichan';
-    $page_css = '/css/galery.css';
+    $page_css = './css/galery.css';
     include 'header.php';
 ?>
 
@@ -22,18 +22,18 @@
             <p>Tempat terbaik untuk bersantai, bekerja, dan menikmati momen bersama orang-orang tersayang.</p>
         </div>
         <div class="right">
-            <img src="../Aset/DIT08383.jpg" class="slide active">
-            <img src="../Aset/DIT08283.jpg" class="slide">
+            <img src="./Aset/DIT08383.jpg" class="slide active">
+            <img src="./Aset/DIT08283.jpg" class="slide">
         </div>
     </section>
 
     <section class="image reverse">
         <div class="img-left">
-            <img src="../Aset/DIT08293.jpg" class="slide2 active2">
-            <img src="../Aset/DIT08305.jpg" class="slide2">
-            <img src="../Aset/DIT08316.jpg" class="slide2">
-            <img src="../Aset/DIT08319.jpg" class="slide2">
-            <img src="../Aset/DIT08339.jpg" class="slide2">
+            <img src="./Aset/DIT08293.jpg" class="slide2 active2">
+            <img src="./Aset/DIT08305.jpg" class="slide2">
+            <img src="./Aset/DIT08316.jpg" class="slide2">
+            <img src="./Aset/DIT08319.jpg" class="slide2">
+            <img src="./Aset/DIT08339.jpg" class="slide2">
         </div>
         <div class="text-right">
             <div class="text">
@@ -49,8 +49,8 @@
             <p>Slow down, you deserve a break.</p>
         </div>
         <div class="right">
-            <img src="../Aset/DIT08004.jpg" class="slide3 active3">
-            <img src="../Aset/DIT01161.jpg" class="slide3">
+            <img src="./Aset/DIT08004.jpg" class="slide3 active3">
+            <img src="./Aset/DIT01161.jpg" class="slide3">
         </div>
     </section>
     
@@ -63,6 +63,6 @@
             <i class="fa fa-whatsapp" style="font-size:24px"></i>+62 851-3826-3206</a>
         </div>    
     </footer>
-    <script src="/javascript/Galery.js"></script>
+    <script src="./js/Galery.js"></script>
 </body>
 </html>

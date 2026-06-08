@@ -1,32 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home — Noma Coffee & Taichan</title>
-    <link rel="stylesheet" href="/css/Homepage.css">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-
 <?php
     include 'header.php';
 ?>
+
     <section id="opening">
-        <div class="slide active"><img src="../Aset/IMG-Opening/IMG-Opening1.jpeg" class="opening"></div>
-        <div class="slide"><img src="../Aset/IMG-Opening/IMG-Opening2.jpeg" class="opening"></div>
-        <div class="slide"><img src="../Aset/IMG-Opening/IMG-Opening3.jpeg" class="opening"></div>
-        <div class="slide"><img src="../Aset/IMG-Opening/IMG-Opening4.jpeg" class="opening"></div>
-        <div class="slide"><img src="../Aset/IMG-Opening/IMG-Opening5.jpeg" class="opening"></div>
+        <div class="slide active"><img src="./Aset/IMG-Opening/IMG-Opening1.jpeg" class="opening"></div>
+        <div class="slide"><img src="./Aset/IMG-Opening/IMG-Opening2.jpeg" class="opening"></div>
+        <div class="slide"><img src="./Aset/IMG-Opening/IMG-Opening3.jpeg" class="opening"></div>
+        <div class="slide"><img src="./Aset/IMG-Opening/IMG-Opening4.jpeg" class="opening"></div>
+        <div class="slide"><img src="./Aset/IMG-Opening/IMG-Opening5.jpeg" class="opening"></div>
 
         <div class="opening-overlay"></div>
 
         <div class="opening-content">
-            <img src="../Aset/Logo.png" class="opening-logo" alt="Noma Coffee & Taichan">
+            <img src="./Aset/Logo.png" class="opening-logo" alt="Noma Coffee & Taichan">
             <p class="opening-tagline">Coffee &amp; Taichan</p>
             <p class="opening-tagline">Nongkrong-Makan baru lanjut</p>
             <div class="opening-divider"></div>
-            <a href="../Menu/Menu.html" class="opening-cta">Lihat Menu</a>
+            <a href="./Menu/Menu.html" class="opening-cta">Lihat Menu</a>
         </div>
     </section>
 
@@ -36,15 +26,15 @@
 
             <div class="news-grid">
                 <article class="card card-featured">
-                    <img src="../Aset/IMG-Opening/IMG-Opening3.jpeg" alt="">
+                    <img src="./Aset/IMG-Opening/IMG-Opening3.jpeg" alt="">
                     <div class="card-body">
                         <h3>TROPICAL BREEZE!</h3> 
                         <p>Refresh mood kamu dengan Tropical Mix Series.</p> 
-                        <button class="btn" onclick="location.href='../Menu/Menu.html'">View More</button>
+                        <button class="btn" onclick="location.href='./Menu/Menu.html'">View More</button>
                     </div>  
                 </article>
                 <article class="card card-featured">
-                    <img src="../Aset/DIT07999.jpg" alt="">
+                    <img src="./Aset/DIT07999.jpg" alt="">
                     <div class="card-body">
                         <h3>Dont miss it!</h3> 
                         <p>Dapatkan update terbaru melalui instagram NOMA!</p>

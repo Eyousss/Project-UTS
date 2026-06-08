@@ -112,6 +112,6 @@
             <i class="fa fa-whatsapp" style="font-size:24px"></i>+62 851-3826-3206</a>
         </div>    
         </footer>
-    <script src="./javascript/Menu.js"></script>
+    <script src="./js/Menu.js"></script>
 </body>
 </html>

@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php 
     $page_title = 'Galeri - Noma Coffee & Taichan';
     $page_css = './css/galery.css';

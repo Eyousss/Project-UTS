@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
     $page_title = 'Feedback — Noma Coffee & Taichan';
     $page_css   = './css/feedback.css';

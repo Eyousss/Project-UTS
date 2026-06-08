@@ -9,18 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body>
-    <nav class="navbar">
-        <div class="logo">
-            <a href="index.html" class="logo-text">noma</a>
-        </div>
-        <ul class="menu">
-            <li><a href="index.html" class="active-page" id="home">HOME</a></li>
-            <li><a href="Menu.html" id="menu">MENU</a></li>
-            <li><a href="Galery.html" id="galery">GALERI</a></li>
-            <li><a href="Feedback.html" id="feedback">FEEDBACK</a></li>
-        </ul>
-    </nav>
+<?php
+    include 'header.php';
+?>
     <section id="opening">
         <div class="slide active"><img src="../Aset/IMG-Opening/IMG-Opening1.jpeg" class="opening"></div>
         <div class="slide"><img src="../Aset/IMG-Opening/IMG-Opening2.jpeg" class="opening"></div>

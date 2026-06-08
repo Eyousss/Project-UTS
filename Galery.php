@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeri — Noma Coffee & Taichan</title>
-    <link rel="stylesheet" href="/css/Galery.css">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
-    <nav class="navbar">
-        <div class="logo">
-            <a href="index.html" class="logo-text">noma</a>
-        </div>
-        <ul class="menu">
-            <li><a href="index.html" id="facility">HOME</a></li>
-            <li><a href="Menu.html" id="menu">MENU</a></li>
-            <li><a href="Galery.html" class="active-page" id="galery">GALERI</a></li>
-            <li><a href="Feedback.html" id="feedback">FEEDBACK</a></li>
-        </ul>
-    </nav>
+<?php 
+    $page_title = 'Galeri - Noma Coffee & Taichan';
+    $page_css = '/css/galery.css';
+    include 'header.php';
+?>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.menu li a').forEach(function(link) {
+            link.classList.remove('active-page');
+        });
+        var galeryLink = document.getElementById('galery');
+        if (galeryLink) galeryLink.classList.add('active-page');
+    });
+</script>
+
     <section class="image">
         <div class="text-left">
             <h2>Daily Activity at Noma</h2>
@@ -57,6 +53,7 @@
             <img src="../Aset/DIT01161.jpg" class="slide3">
         </div>
     </section>
+    
     <footer>
         <label>&copy; 2026 Noma Coffee & Taichan. All rights reserved.</label><br>
         <div class="sosmed-grup">

@@ -1,25 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu — Noma Coffee & Taichan</title>
-    <link rel="stylesheet" href="/css/Menu.css">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>>
-<body>
-        <nav class="navbar">
-        <div class="logo">
-            <a href="index.html" class="logo-text">noma</a>
-        </div>
-            <ul class="menu">
-                <li><a href="index.html" id="home">HOME</a></li>
-                <li><a href="Menu.html" class="active-page" id="menu">MENU</a></li>
-                <li><a href="Galery.html" id="galery">GALERI</a></li>
-                <li><a href="Feedback.html" id="feedback">FEEDBACK</a></li>
-            </ul>
-    </nav>
+<?php
+    $page_title = 'Menu — Noma Coffee & Taichan';
+    $page_css   = '/css/Menu.css';
+    include 'header.php';
+?>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.menu li a').forEach(function(link) {
+            link.classList.remove('active-page');
+        });
+        var menuLink = document.getElementById('menu');
+        if (menuLink) menuLink.classList.add('active-page');
+    });
+</script>
 
     <section id="menu-section">
         <div class="menu-container">

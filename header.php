@@ -10,12 +10,12 @@
 <body>
     <nav class="navbar">
         <div class="logo">
-            <a href="index.html" class="logo-text">noma</a>
+            <a href="index.php" class="logo-text">noma</a>
         </div>
         <ul class="menu">
-            <li><a href="index.html" class="active-page" id="home">HOME</a></li>
-            <li><a href="Menu.html" id="menu">MENU</a></li>
-            <li><a href="Galery.html" id="galery">GALERI</a></li>
-            <li><a href="Feedback.html" id="feedback">FEEDBACK</a></li>
+            <li><a href="index.php" class="active-page" id="home">HOME</a></li>
+            <li><a href="Menu.php" id="menu">MENU</a></li>
+            <li><a href="Galery.php" id="galery">GALERI</a></li>
+            <li><a href="Feedback.php" id="feedback">FEEDBACK</a></li>
         </ul>
     </nav>

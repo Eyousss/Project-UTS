@@ -1,0 +1,21 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home — Noma Coffee & Taichan</title>
+    <link rel="stylesheet" href="/css/Homepage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html" class="logo-text">noma</a>
+        </div>
+        <ul class="menu">
+            <li><a href="index.html" class="active-page" id="home">HOME</a></li>
+            <li><a href="Menu.html" id="menu">MENU</a></li>
+            <li><a href="Galery.html" id="galery">GALERI</a></li>
+            <li><a href="Feedback.html" id="feedback">FEEDBACK</a></li>
+        </ul>
+    </nav>

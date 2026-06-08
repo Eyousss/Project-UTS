@@ -2,7 +2,7 @@
 <html lang="en">
 <?php
     $page_title = 'Feedback — Noma Coffee & Taichan';
-    $page_css   = '/css/feedback.css';
+    $page_css   = './css/feedback.css';
     include 'header.php';
 ?>
 
@@ -84,6 +84,6 @@
             <i class="fa fa-whatsapp" style="font-size:24px"></i>+62 851-3826-3206</a>
         </div>    
     </footer>
-    <script src="/javascript/feedback.js"></script>
+    <script src="./js/feedback.js"></script>
 </body>
 </html>

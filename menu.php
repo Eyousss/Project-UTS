@@ -2,9 +2,10 @@
     $page_title = 'Menu — Noma Coffee & Taichan';
     $page_css   = './css/Menu.css';
     include 'header.php';
+    include 'koneksi.php';
 
     $menu_items = [];
-    $query = "SELECT * FROM menu_items ORDER BY category, name";
+    $query = "SELECT * FROM menu_items ORDER BY category, menu_name";
     $result = mysqli_query($conn, $query);
     if ($result) {
         while ($row = mysqli_fetch_assoc($result)) {
@@ -36,10 +37,16 @@
             <div class="menu-grid">
                 <?php if (!empty($menu_items)): ?>
                     <?php foreach ($menu_items as $item): ?>
-                        <a class="menu-card" data-category="<?php echo htmlspecialchars($item['category']); ?>" target="_blank" href="<?php echo htmlspecialchars($item['link'] ?: '#'); ?>">
-                            <img src="<?php echo htmlspecialchars($item['image']); ?>" alt="<?php echo htmlspecialchars($item['name']); ?>">
-                            <p><?php echo htmlspecialchars($item['name']); ?></p>
-                        </a>
+                        <a class="menu-card" 
+data-category="<?php echo htmlspecialchars($item['category']); ?>" 
+target="_blank" href="#">
+
+    <img src="<?php echo htmlspecialchars($item['menu_image']); ?>" 
+    alt="<?php echo htmlspecialchars($item['menu_name']); ?>">
+
+    <p><?php echo htmlspecialchars($item['menu_name']); ?></p>
+
+</a>
                     <?php endforeach; ?>
                 <?php else: ?>
                     <div class="empty-message">Belum ada menu. Tambahkan menu melalui halaman admin.</div>

@@ -177,6 +177,66 @@ a{
     color: #222;
 }
 
+.admin-form {
+    display: grid;
+    gap: 16px;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.admin-form label {
+    font-weight: 600;
+    color: #333;
+}
+
+.admin-form input,
+.admin-form select,
+.admin-form button {
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.95rem;
+}
+
+.admin-form input,
+.admin-form select {
+    width: 100%;
+    background: #fff;
+}
+
+.admin-form button {
+    cursor: pointer;
+    background-color: #361818;
+    color: #fff;
+    border-color: #361818;
+    transition: background-color 0.2s ease;
+}
+
+.admin-form button:hover {
+    background-color: #4a1d1d;
+}
+
+.empty-message,
+.success-message,
+.error-message {
+    text-align: center;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+}
+
+.success-message {
+    background: #e0f6e9;
+    color: #1a6a3a;
+    border: 1px solid #9edfbe;
+}
+
+.error-message {
+    background: #ffe6e6;
+    color: #8b2020;
+    border: 1px solid #f3a3a3;
+}
 
 .menu-card.hidden {
     display: none;

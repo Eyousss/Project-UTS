@@ -2,6 +2,15 @@
     $page_title = 'Menu — Noma Coffee & Taichan';
     $page_css   = './css/Menu.css';
     include 'header.php';
+
+    $menu_items = [];
+    $query = "SELECT * FROM menu_items ORDER BY category, name";
+    $result = mysqli_query($conn, $query);
+    if ($result) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $menu_items[] = $row;
+        }
+    }
 ?>
 
 <script>
@@ -25,10 +34,16 @@
             </div>
 
             <div class="menu-grid">
-                <a class="menu-card" data-category="makanan" target="_blank" href="https://food.grab.com/id/en/restaurant/noma-coffee-taichan-akcaya-delivery/6-C7VJE6BKJGNTMA?sourceID=20251226_130710_5364ccee9a0145128cb3ddc96a24bcd3_MEXMPS">
-                    <img src="./Aset/makanan/chicken-salted-egg.png" alt="Chicken Salted Egg">
-                    <p>Chicken Salted Egg</p>
-                </a>
+                <?php if (!empty($menu_items)): ?>
+                    <?php foreach ($menu_items as $item): ?>
+                        <a class="menu-card" data-category="<?php echo htmlspecialchars($item['category']); ?>" target="_blank" href="<?php echo htmlspecialchars($item['link'] ?: '#'); ?>">
+                            <img src="<?php echo htmlspecialchars($item['image']); ?>" alt="<?php echo htmlspecialchars($item['name']); ?>">
+                            <p><?php echo htmlspecialchars($item['name']); ?></p>
+                        </a>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <div class="empty-message">Belum ada menu. Tambahkan menu melalui halaman admin.</div>
+                <?php endif; ?>
                 <a class="menu-card" data-category="makanan" target="_blank" href="https://food.grab.com/id/en/restaurant/noma-coffee-taichan-akcaya-delivery/6-C7VJE6BKJGNTMA?sourceID=20251226_130710_5364ccee9a0145128cb3ddc96a24bcd3_MEXMPS">
                     <img src="./Aset/makanan/mie-nyemek.png" alt="Chicken Salted Egg">
                     <p>Mie Nyemek</p>

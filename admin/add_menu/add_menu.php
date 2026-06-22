@@ -1,8 +1,6 @@
 <?php
-    $page_title = 'Tambah Menu — Noma Coffee & Taichan';
-    $page_css   = './css/Menu.css';
-    include 'header.php';
-
+    include '../security.php';
+    // Simple add-menu fragment. Header, title and css removed — include directly from index if needed.
     $success = isset($_GET['success']) && $_GET['success'] === '1';
     $error = isset($_GET['error']) ? $_GET['error'] : '';
 ?>

@@ -27,8 +27,8 @@
                 <option value="minuman">Minuman</option>
             </select>
 
-            <label for="image">Path Gambar</label>
-            <input type="text" id="image" name="image" placeholder="Contoh: ./Aset/makanan/nasi-bakar.png" required>
+            <label for="image">Gambar</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
 
             <label for="link">Link Pesanan / Detail</label>
             <input type="url" id="link" name="link" placeholder="https://..." value="" >

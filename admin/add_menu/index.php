@@ -54,15 +54,19 @@ $error = isset($_GET['error']) ? $_GET['error'] : '';
     ?>
         <table>
             <thead>
-                <tr><th>ID</th><th>Nama</th><th>Kategori</th><th>Gambar</th><th>Link</th><th>Aksi</th></tr>
+                <tr><th>No</th><th>Nama</th><th>Kategori</th><th>Gambar</th><th>Link</th><th>Aksi</th></tr>
             </thead>
             <tbody>
-            <?php while ($row = mysqli_fetch_assoc($res)): ?>
+            <?php $no = 1; while ($row = mysqli_fetch_assoc($res)): ?>
                 <tr>
-                    <td><?php echo $row['id']; ?></td>
+                    <td><?php echo $no++; ?></td>
                     <td><?php echo htmlspecialchars($row['name']); ?></td>
                     <td><?php echo htmlspecialchars($row['category']); ?></td>
-                    <td><img src="<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['name']); ?>" style="max-width:100px; max-height:100px;"></td>
+                    <?php $imageSrc = htmlspecialchars($row['image']); ?>
+                    <?php if ($imageSrc && strpos($imageSrc, 'http') !== 0 && $imageSrc[0] !== '/'): ?>
+                        <?php $imageSrc = '../../' . $imageSrc; ?>
+                    <?php endif; ?>
+                    <td><img src="<?php echo $imageSrc; ?>" alt="<?php echo htmlspecialchars($row['name']); ?>" style="max-width:100px; max-height:100px;"></td>
                     <td><?php echo htmlspecialchars($row['link']); ?></td>
                     <td>
                         <a href="edit.php?id=<?php echo $row['id']; ?>">Edit</a> |

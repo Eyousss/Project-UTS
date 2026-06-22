@@ -15,11 +15,13 @@ mysqli_stmt_bind_param($stmt, 'i', $id);
 mysqli_stmt_execute($stmt);
 mysqli_stmt_bind_result($stmt, $image_path);
 mysqli_stmt_fetch($stmt);
+mysqli_stmt_close($stmt);
 
 $query = "DELETE FROM menu_items WHERE id = ?";
-$stmt = mysqli_prepare($conn, $query);
-mysqli_stmt_bind_param($stmt, 'i', $id);
-if (mysqli_stmt_execute($stmt)) {
+$stmt_delete = mysqli_prepare($conn, $query);
+mysqli_stmt_bind_param($stmt_delete, 'i', $id);
+if (mysqli_stmt_execute($stmt_delete)) {
+	mysqli_stmt_close($stmt_delete);
 	// Delete image file if it exists
 	if ($image_path && file_exists('../../' . $image_path)) {
 		unlink('../../' . $image_path);
@@ -27,6 +29,7 @@ if (mysqli_stmt_execute($stmt)) {
 	header('Location: index.php?deleted=1');
 	exit;
 }
+mysqli_stmt_close($stmt_delete);
 
 header('Location: index.php?deleted=0');
 exit;

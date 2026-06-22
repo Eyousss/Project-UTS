@@ -1,6 +1,5 @@
 <?php
     include '../security.php';
-    // Simple add-menu fragment. Header, title and css removed — include directly from index if needed.
     $success = isset($_GET['success']) && $_GET['success'] === '1';
     $error = isset($_GET['error']) ? $_GET['error'] : '';
 ?>

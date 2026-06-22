@@ -13,9 +13,9 @@ $query = "DELETE FROM menu_items WHERE id = ?";
 $stmt = mysqli_prepare($conn, $query);
 mysqli_stmt_bind_param($stmt, 'i', $id);
 if (mysqli_stmt_execute($stmt)) {
-	header('Location: ../dashboard.php?deleted=1');
+	header('Location: index.php?deleted=1');
 	exit;
 }
 
-header('Location: ../dashboard.php?deleted=0');
+header('Location: index.php?deleted=0');
 exit;

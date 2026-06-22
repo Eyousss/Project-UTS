@@ -1,6 +1,103 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: sans-serif;
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: #f5f1eb;
+    min-height: 100vh;
+    color: #2b2118;
+}
+
+.wrapper {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 30px;
+}
+
+.welcome-card {
+    background: white;
+    padding: 32px 36px;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    margin-bottom: 30px;
+}
+
+.welcome-card h1 {
+    font-size: 32px;
+    color: #3b2416;
+    margin-bottom: 4px;
+}
+
+.welcome-card p {
+    color: #6d5c50;
+    font-size: 15px;
+}
+
+.nav-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.nav-card {
+    background: white;
+    padding: 28px 30px;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    transition: transform 0.2s;
+}
+
+.nav-card:hover {
+    transform: translateY(-4px);
+}
+
+.nav-card h3 {
+    font-size: 18px;
+    color: #3b2416;
+    margin-bottom: 6px;
+}
+
+.nav-card p {
+    color: #6d5c50;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.nav-card a {
+    display: inline-block;
+    text-decoration: none;
+    background: #3b2416;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: background 0.2s;
+}
+
+.nav-card a:hover {
+    background: #8b4a2f;
+}
+
+.logout-section {
+    margin-top: 30px;
+    text-align: right;
+}
+
+.logout-btn {
+    display: inline-block;
+    text-decoration: none;
+    background: transparent;
+    color: #8b4a2f;
+    border: 1.5px solid #8b4a2f;
+    padding: 10px 24px;
+    border-radius: 10px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: 0.2s;
+}
+
+.logout-btn:hover {
+    background: #8b4a2f;
+    color: white;
 }

@@ -1,4 +1,4 @@
-    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="/css/footer.css">
     <footer>
         <label>&copy; 2026 Noma Coffee & Taichan. All rights reserved.</label><br>
         <div class="sosmed-grup">

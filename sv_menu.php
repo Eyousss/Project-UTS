@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save'])) {
         exit;
     }
 
-    $query = "INSERT INTO menu_items (name, category, image, link) VALUES (?, ?, ?, ?)";
+    $query = "INSERT INTO menu_items (name, category, menu_image, link) VALUES (?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $query);
     mysqli_stmt_bind_param($stmt, 'ssss', $name, $category, $image, $link);
 

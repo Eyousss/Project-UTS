@@ -26,7 +26,7 @@ $error = isset($_GET['error']) ? $_GET['error'] : '';
 
     <section id="add-form">
         <h2>Tambah Menu Baru</h2>
-        <form action="../../sv_menu.php" method="post">
+        <form action="../../sv_menu.php" method="post" enctype="multipart/form-data">
             <label for="name">Nama Menu</label>
             <input type="text" id="name" name="name" placeholder="Masukkan nama menu" required>
 
@@ -62,7 +62,7 @@ $error = isset($_GET['error']) ? $_GET['error'] : '';
                     <td><?php echo $row['id']; ?></td>
                     <td><?php echo htmlspecialchars($row['name']); ?></td>
                     <td><?php echo htmlspecialchars($row['category']); ?></td>
-                    <td><?php echo htmlspecialchars($row['image']); ?></td>
+                    <td><img src="<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['name']); ?>" style="max-width:100px; max-height:100px;"></td>
                     <td><?php echo htmlspecialchars($row['link']); ?></td>
                     <td>
                         <a href="edit.php?id=<?php echo $row['id']; ?>">Edit</a> |

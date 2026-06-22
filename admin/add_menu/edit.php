@@ -25,11 +25,11 @@ if (!$rid) {
 <head>
     <meta charset="utf-8">
     <title>Edit Menu</title>
-    <style>label{display:block;margin-top:8px}input[type=text],select{width:100%;padding:6px}</style>
+    <style>label{display:block;margin-top:8px}input[type=text],input[type=file],select{width:100%;padding:6px}img{max-width:150px;max-height:150px;margin-top:10px}</style>
 </head>
 <body>
     <h1>Edit Menu</h1>
-    <form action="sv_edit.php" method="post">
+    <form action="sv_edit.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?php echo $rid; ?>">
         <label>Nama Menu
             <input type="text" name="name" value="<?php echo htmlspecialchars($rname); ?>" required>
@@ -40,8 +40,12 @@ if (!$rid) {
                 <option value="minuman" <?php echo $rcat === 'minuman' ? 'selected' : ''; ?>>Minuman</option>
             </select>
         </label>
-        <label>Path Gambar
-            <input type="text" name="image" value="<?php echo htmlspecialchars($rimg); ?>" required>
+        <label>Gambar Sekarang
+            <br><img src="../../<?php echo htmlspecialchars($rimg); ?>" alt="<?php echo htmlspecialchars($rname); ?>">
+        </label>
+        <label>Ganti Gambar (Opsional)
+            <input type="file" name="image" accept="image/*">
+            <small>Biarkan kosong jika tidak ingin mengganti gambar</small>
         </label>
         <label>Link
             <input type="text" name="link" value="<?php echo htmlspecialchars($rlink); ?>">

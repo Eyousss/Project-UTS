@@ -12,28 +12,6 @@ body {
     background-color: rgb(255, 255, 255);
 }
 
-footer {
-    text-align: center;
-    background-color: #361818;
-    color: white;
-    padding: 20px;
-    margin-top: auto;
-}
-
-.sosmed-grup {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
-    margin-top: 12px;
-}
-
-.sosmed {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    color: white;
-}
 
 a{
     text-decoration: none;

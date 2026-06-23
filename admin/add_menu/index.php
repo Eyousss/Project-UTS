@@ -17,7 +17,7 @@ $error = isset($_GET['error']) ? $_GET['error'] : '';
 </head>
 <body>
     <h1>Manajemen Menu</h1>
-    <p><<a href="../dashboard.php">Kembali ke Dashboard</a></p>
+    <p><a href="../dashboard.php">Kembali ke Dashboard</a></p>
 
     <?php if ($success): ?><p style="color:green">Menu berhasil disimpan ke database.</p><?php endif; ?>
     <?php if ($error): ?><p style="color:red"><?php echo htmlspecialchars($error); ?></p><?php endif; ?>

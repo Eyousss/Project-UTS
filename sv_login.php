@@ -14,7 +14,7 @@ if($num > 0){
     $_SESSION['username'] = $username;
     header("Location: admin/dashboard.php");
     exit;
-}else{
+}else
     header("Location: login.php");
     exit;
 }

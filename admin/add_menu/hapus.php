@@ -22,7 +22,7 @@ $stmt_delete = mysqli_prepare($conn, $query);
 mysqli_stmt_bind_param($stmt_delete, 'i', $id);
 if (mysqli_stmt_execute($stmt_delete)) {
 	mysqli_stmt_close($stmt_delete);
-	// Delete image file if it exists
+	
 	if ($image_path && file_exists('../../' . $image_path)) {
 		unlink('../../' . $image_path);
 	}

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="<?php echo isset($page_css) ? $page_css : './css/Homepage.css'; ?>">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="./Aset/Logo.png" type="image/x-icon">
 </head>
 
 <body>

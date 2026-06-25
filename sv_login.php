@@ -1,5 +1,5 @@
 <?php
-session_start();
+session_start();    
 
 include "koneksi.php";
 
@@ -12,10 +12,11 @@ $num = mysqli_num_rows($query);
 
 if($num > 0){
     $_SESSION['username'] = $username;
+    $_SESSION['admin'] = true;
     header("Location: admin/dashboard.php");
     exit;
 }else
     header("Location: login.php");
     exit;
-}
+
 ?>

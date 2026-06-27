@@ -31,6 +31,11 @@ include "security.php";
             <p>Tambah, edit, dan hapus item menu restoran</p>
             <a href="add_menu/index.php">Kelola Menu</a>
         </div>
+        <div class="nav-card">
+            <h3>Manajemen News</h3>
+            <p>Tambah, edit, dan hapus berita di halaman pembaruan</p>
+            <a href="add_news/index.php">Kelola News</a>
+        </div>
     </div>
  
     <div class="logout-section">

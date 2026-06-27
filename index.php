@@ -19,26 +19,53 @@
         </div>
     </section>
 
+<?php
+include 'koneksi.php';
+$newsResult = mysqli_query($conn, "SELECT title, description, image, button_text, button_url FROM news ORDER BY created_at DESC LIMIT 4");
+$newsItems = [];
+if ($newsResult) {
+    while ($newsRow = mysqli_fetch_assoc($newsResult)) {
+        $newsItems[] = $newsRow;
+    }
+}
+?>
     <section id="updates">
         <div class="container">
             <h2>Our Updates</h2>
             <div class="news-grid">
-                <article class="card card-featured">
-                    <img src="./Aset/IMG-Opening/IMG-Opening3.jpeg" alt="">
-                    <div class="card-body">
-                        <h3>TROPICAL BREEZE!</h3> 
-                        <p>Refresh mood kamu dengan Tropical Mix Series.</p> 
-                        <button class="btn" onclick="location.href='./Menu/Menu.html'">View More</button>
-                    </div>  
-                </article>
-                <article class="card card-featured">
-                    <img src="./Aset/DIT07999.jpg" alt="">
-                    <div class="card-body">
-                        <h3>Dont miss it!</h3> 
-                        <p>Dapatkan update terbaru melalui instagram NOMA!</p>
-                        <button class="btn" onclick="window.open('https://www.instagram.com/noma_idn/', '_blank')">View More</button>
-                    </div>  
-                </article>
+                <?php if (count($newsItems) > 0): ?>
+                    <?php foreach ($newsItems as $item): ?>
+                        <article class="card card-featured">
+                            <?php if (!empty($item['image'])): ?>
+                                <img src="<?php echo htmlspecialchars($item['image']); ?>" alt="<?php echo htmlspecialchars($item['title']); ?>">
+                            <?php endif; ?>
+                            <div class="card-body">
+                                <h3><?php echo htmlspecialchars($item['title']); ?></h3>
+                                <p><?php echo htmlspecialchars($item['description']); ?></p>
+                                <?php if (!empty($item['button_url'])): ?>
+                                    <button class="btn" onclick="window.location.href='<?php echo htmlspecialchars($item['button_url']); ?>'"><?php echo htmlspecialchars($item['button_text'] ?: 'View More'); ?></button>
+                                <?php endif; ?>
+                            </div>
+                        </article>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <article class="card card-featured">
+                        <img src="./Aset/IMG-Opening/IMG-Opening3.jpeg" alt="">
+                        <div class="card-body">
+                            <h3>TROPICAL BREEZE!</h3>
+                            <p>Refresh mood kamu dengan Tropical Mix Series.</p>
+                            <button class="btn" onclick="location.href='./Menu/Menu.html'">View More</button>
+                        </div>
+                    </article>
+                    <article class="card card-featured">
+                        <img src="./Aset/DIT07999.jpg" alt="">
+                        <div class="card-body">
+                            <h3>Dont miss it!</h3>
+                            <p>Dapatkan update terbaru melalui instagram NOMA!</p>
+                            <button class="btn" onclick="window.open('https://www.instagram.com/noma_idn/', '_blank')">View More</button>
+                        </div>
+                    </article>
+                <?php endif; ?>
             </div>
         </div>
     </section>

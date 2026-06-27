@@ -15,14 +15,16 @@
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <a href="index.php" class="logo-text">noma</a>
-        </div>
-        <ul class="menu">
-            <li><a href="index.php" class="active-page" id="home">HOME</a></li>
-            <li><a href="menu.php" id="menu">MENU</a></li>
-            <li><a href="gallery.php" id="galery">GALERI</a></li>
-            <li><a href="feedback.php" id="feedback">FEEDBACK</a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.php" class="logo-text">noma</a>
+            </div>
+            <ul class="menu">
+                <li><a href="index.php" class="active-page" id="home">HOME</a></li>
+                <li><a href="menu.php" id="menu">MENU</a></li>
+                <li><a href="gallery.php" id="galery">GALERI</a></li>
+                <li><a href="feedback.php" id="feedback">FEEDBACK</a></li>
+            </ul>
+        </nav>
+    </header>

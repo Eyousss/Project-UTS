@@ -1,6 +1,6 @@
 <?php 
     $page_title = 'Galeri - Noma Coffee & Taichan';
-    $page_css = './css/galery.css';
+    $page_css = './css/gallery.css';
     include 'header.php';
 ?>
 

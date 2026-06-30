@@ -33,14 +33,17 @@ if (!$news) {
 <body>
     <h1>Edit News</h1>
     <p><a href="index.php" class="button">Kembali</a></p>
-    <form action="sv_edit.php" method="post">
+    <form action="sv_edit.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?php echo $news['id']; ?>">
         <label for="title">Judul</label>
         <input type="text" id="title" name="title" value="<?php echo htmlspecialchars($news['title']); ?>" required>
         <label for="description">Deskripsi</label>
         <textarea id="description" name="description" required><?php echo htmlspecialchars($news['description']); ?></textarea>
-        <label for="image">URL Gambar</label>
-        <input type="text" id="image" name="image" value="<?php echo htmlspecialchars($news['image']); ?>">
+        <label for="image">Gambar Baru</label>
+        <input type="file" id="image" name="image" accept="image/*">
+        <?php if (!empty($news['image'])): ?>
+            <p>Gambar saat ini: <strong><?php echo htmlspecialchars($news['image']); ?></strong></p>
+        <?php endif; ?>
         <label for="button_text">Teks Tombol</label>
         <input type="text" id="button_text" name="button_text" value="<?php echo htmlspecialchars($news['button_text']); ?>">
         <label for="button_url">URL Tombol</label>

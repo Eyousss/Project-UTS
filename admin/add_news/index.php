@@ -16,22 +16,6 @@ $res = mysqli_query($conn, $query);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Kelola News</title>
-    <style>
-        body{font-family:Arial,Helvetica,sans-serif;margin:20px}
-        table{border-collapse:collapse;width:100%;margin-top:16px}
-        td,th{border:1px solid #ccc;padding:8px;text-align:left;vertical-align:top}
-        a.button, button{display:inline-block;padding:8px 12px;background:#2d89ef;color:#fff;text-decoration:none;border:none;border-radius:4px;cursor:pointer}
-        a.button:hover, button:hover{background:#1a5fb4}
-        .danger{background:#d9534f}
-        .danger:hover{background:#c12e2a}
-        .message{margin:10px 0;padding:10px;border-radius:4px}
-        .success{background:#d4edda;color:#155724}
-        .error{background:#f8d7da;color:#721c24}
-        label{display:block;margin-top:10px;font-weight:600}
-        input, textarea{width:100%;padding:8px;margin-top:4px;border:1px solid #ccc;border-radius:4px}
-        textarea{min-height:100px;resize:vertical}
-        fieldset{border:1px solid #ccc;padding:16px;border-radius:6px}
-    </style>
 </head>
 <body>
     <h1>Kelola News</h1>
@@ -44,15 +28,15 @@ $res = mysqli_query($conn, $query);
 
     <fieldset>
         <legend>Tambah News Baru</legend>
-        <form action="sv_news.php" method="post">
+        <form action="sv_news.php" method="post" enctype="multipart/form-data">
             <label for="title">Judul</label>
             <input type="text" id="title" name="title" required>
 
             <label for="description">Deskripsi</label>
             <textarea id="description" name="description" required></textarea>
 
-            <label for="image">URL Gambar</label>
-            <input type="text" id="image" name="image" placeholder="contoh: Aset/IMG-Opening/IMG-Opening3.jpeg">
+            <label for="image">Gambar</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
 
             <label for="button_text">Teks Tombol</label>
             <input type="text" id="button_text" name="button_text" value="View More">

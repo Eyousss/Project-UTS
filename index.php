@@ -49,22 +49,7 @@ if ($newsResult) {
                         </article>
                     <?php endforeach; ?>
                 <?php else: ?>
-                    <article class="card card-featured">
-                        <img src="./Aset/IMG-Opening/IMG-Opening3.jpeg" alt="">
-                        <div class="card-body">
-                            <h3>TROPICAL BREEZE!</h3>
-                            <p>Refresh mood kamu dengan Tropical Mix Series.</p>
-                            <button class="btn" onclick="location.href='./Menu/Menu.html'">View More</button>
-                        </div>
-                    </article>
-                    <article class="card card-featured">
-                        <img src="./Aset/DIT07999.jpg" alt="">
-                        <div class="card-body">
-                            <h3>Dont miss it!</h3>
-                            <p>Dapatkan update terbaru melalui instagram NOMA!</p>
-                            <button class="btn" onclick="window.open('https://www.instagram.com/noma_idn/', '_blank')">View More</button>
-                        </div>
-                    </article>
+                    <p>No news available at the moment.</p>
                 <?php endif; ?>
             </div>
         </div>

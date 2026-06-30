@@ -43,7 +43,7 @@ if ($newsResult) {
                                 <h3><?php echo htmlspecialchars($item['title']); ?></h3>
                                 <p><?php echo htmlspecialchars($item['description']); ?></p>
                                 <?php if (!empty($item['button_url'])): ?>
-                                    <button class="btn" onclick="window.location.href='<?php echo htmlspecialchars($item['button_url']); ?>'"><?php echo htmlspecialchars($item['button_text'] ?: 'View More'); ?></button>
+                                    <button class="btn" onclick="window.open('<?php echo htmlspecialchars($item['button_url']); ?>', '_blank')"><?php echo htmlspecialchars($item['button_text'] ?: 'View More'); ?></button>
                                 <?php endif; ?>
                             </div>
                         </article>

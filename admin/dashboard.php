@@ -24,12 +24,16 @@ include "security.php";
         <h1>Dashboard Admin</h1>
         <p>Selamat datang kembali, <strong><?php echo htmlspecialchars($username); ?></strong></p>
     </div>
- 
     <div class="nav-menu">
         <div class="nav-card">
             <h3>Manajemen Menu</h3>
             <p>Tambah, edit, dan hapus item menu restoran</p>
             <a href="add_menu/index.php">Kelola Menu</a>
+        </div>
+        <div class="nav-card">
+            <h3>Manajemen Galeri</h3>
+            <p>Tambah, edit, dan hapus foto galeri restoran</p>
+            <a href="add_gallery/index.php">Kelola Galeri</a>
         </div>
         <div class="nav-card">
             <h3>Manajemen News</h3>

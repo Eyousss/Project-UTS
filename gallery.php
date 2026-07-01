@@ -119,6 +119,6 @@
     <?php endforeach; ?>
 
     <?php include 'footer.php'; ?> 
-    <script src="js/gallery.js"></script>
+    <script src="./js/gallery.js"></script>
 </body>
 </html>

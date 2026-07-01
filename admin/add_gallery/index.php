@@ -29,10 +29,11 @@ if ($gallery_query) {
     <style>
         body{font-family:Arial,sans-serif;padding:20px;line-height:1.5}
         form{max-width:500px;padding:16px;border:1px solid #ddd;border-radius:8px;background:#fafafa}
-        input, button{display:block;width:100%;margin:10px 0;padding:8px}
+        input, button, select{display:block;width:100%;margin:10px 0;padding:8px}
         button{background:#2d89ef;color:#fff;border:none;border-radius:4px;cursor:pointer}
         table{border-collapse:collapse;width:100%;margin-top:20px}td,th{border:1px solid #ccc;padding:8px;text-align:left}
         img{max-width:120px;max-height:120px;object-fit:cover}
+        .action-link{color:#d8000c;text-decoration:none;font-weight:bold}
     </style>
 </head>
 <body>
@@ -70,7 +71,7 @@ if ($gallery_query) {
     <?php if (!empty($gallery_items)): ?>
         <table>
             <thead>
-                <tr><th>No</th><th>Judul</th><th>Section</th><th>Foto</th><th>Tanggal</th></tr>
+                <tr><th>No</th><th>Judul</th><th>Section</th><th>Foto</th><th>Tanggal</th><th>Aksi</th></tr>
             </thead>
             <tbody>
             <?php $no = 1; $defaultSectionLabels = [1 => 'Daily Activity at Noma', 2 => 'Human Touch Brand', 3 => 'Take A Break With Noma']; foreach ($gallery_items as $item): ?>
@@ -80,12 +81,12 @@ if ($gallery_query) {
                     <td><?php echo htmlspecialchars(!empty($item['section_name']) ? $item['section_name'] : (isset($defaultSectionLabels[$item['section']]) ? $defaultSectionLabels[$item['section']] : 'Section ' . $item['section'])); ?></td>
                     <td><img src="../../<?php echo htmlspecialchars($item['image']); ?>" alt="<?php echo htmlspecialchars($item['title']); ?>"></td>
                     <td><?php echo htmlspecialchars($item['created_at']); ?></td>
+                    <td><a href="hapus.php?id=<?php echo $item['id']; ?>" class="action-link" onclick="return confirm('Yakin ingin menghapus foto galeri ini?');">Hapus</a></td>
                 </tr>
             <?php endforeach; ?>
             </tbody>
         </table>
     <?php else: ?>
-
         <p>Belum ada galeri.</p>
     <?php endif; ?>
 </body>

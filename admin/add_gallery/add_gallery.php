@@ -86,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save'])) {
     }
 
     $stmt = mysqli_prepare($conn, 'INSERT INTO gallery_items (title, image, section, section_name, position) VALUES (?, ?, ?, ?, ?)');
-    mysqli_stmt_bind_param($stmt, 'sisss', $title, $image_path, $section, $section_name, $position);
+    mysqli_stmt_bind_param($stmt, 'ssiss', $title, $image_path, $section, $section_name, $position);
 
     if (mysqli_stmt_execute($stmt)) {
         header('Location: index.php?success=1');

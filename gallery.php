@@ -1,102 +1,94 @@
-<?php 
-    $page_title = 'Galeri - Noma Coffee & Taichan';
-    $page_css = 'css/gallery.css';
-    include 'header.php';
-
-    $gallery_items = [];
-    $gallery_query = mysqli_query($conn, "SELECT title, image, section, section_name FROM gallery_items ORDER BY section ASC, id ASC");
-    if ($gallery_query) {
-        while ($row = mysqli_fetch_assoc($gallery_query)) {
-            $gallery_items[] = $row;
+<?php
+include "security.php";
+?>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin - Noma Coffee & Taichan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/navbar_dashboard.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <style>
+        .notification {
+            padding: 15px 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            animation: slideDown 0.3s ease-out;
         }
-    }
 
-    $defaultSections = [
-        1 => [
-            'title' => 'Daily Activity at Noma',
-            'description' => 'Tempat terbaik untuk bersantai, bekerja, dan menikmati momen bersama orang-orang tersayang.',
-            'images' => ['./Aset/DIT08383.jpg', './Aset/DIT08283.jpg'],
-        ],
-        2 => [
-            'title' => 'Human Touch Brand',
-            'description' => 'Dibuat oleh manusia, untuk manusia. Dengan penuh perhatian di setiap langkahnya.',
-            'images' => ['./Aset/DIT08293.jpg', './Aset/DIT08305.jpg', './Aset/DIT08316.jpg', './Aset/DIT08319.jpg', './Aset/DIT08339.jpg'],
-        ],
-        3 => [
-            'title' => 'Take A Break With Noma',
-            'description' => 'Slow down, you deserve a break.',
-            'images' => ['./Aset/DIT08004.jpg', './Aset/DIT01161.jpg'],
-        ],
-    ];
-
-    $sections = [];
-    $sectionTitles = [];
-    foreach ($gallery_items as $item) {
-        $section_id = max(1, (int)($item['section'] ?? 1));
-        $sections[$section_id][] = $item;
-
-        if (!empty($item['section_name'])) {
-            $sectionTitles[$section_id] = [
-                'title' => $item['section_name'],
-                'description' => 'Koleksi foto pada section ' . $item['section_name'],
-            ];
+        .notification.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-left: 4px solid #28a745;
         }
-    }
 
-    for ($section_id = 1; $section_id <= 3; $section_id++) {
-        if (empty($sections[$section_id])) {
-            foreach ($defaultSections[$section_id]['images'] as $image) {
-                $sections[$section_id][] = [
-                    'title' => $defaultSections[$section_id]['title'],
-                    'image' => $image,
-                ];
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
-
-        if (empty($sectionTitles[$section_id])) {
-            $sectionTitles[$section_id] = [
-                'title' => $defaultSections[$section_id]['title'],
-                'description' => $defaultSections[$section_id]['description'],
-            ];
-        }
+    </style>
+</head>
+<body>
+ 
+<nav class="navbar">
+    <a href="#" class="logo-text">noma</a>
+    <span class="admin-label">Admin Panel</span>
+</nav>
+ 
+<div class="wrapper">
+ 
+    <?php
+    $success = isset($_GET['success']) ? $_GET['success'] : '';
+    if ($success === 'added') {
+        echo '<div class="notification success">✓ Admin baru berhasil ditambahkan</div>';
+    } elseif ($success === 'updated') {
+        echo '<div class="notification success">✓ Admin berhasil diperbarui</div>';
+    } elseif ($success === 'deleted') {
+        echo '<div class="notification success">✓ Admin berhasil dihapus</div>';
     }
-
-    ksort($sections);
-?>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('.menu li a').forEach(function(link) {
-            link.classList.remove('active-page');
-        });
-        var galleryLink = document.getElementById('gallery');
-        if (galleryLink) galleryLink.classList.add('active-page');
-    });
-</script>
-
-    <?php foreach ($sections as $section_id => $sectionItems):
-        $isReverse = $section_id % 2 === 0;
-        $sectionClass = $isReverse ? 'image reverse' : 'image';
-        $textClass = $isReverse ? 'text-right' : 'text-left';
-        $sectionTitle = $sectionTitles[$section_id]['title'];
-        $sectionDesc = $sectionTitles[$section_id]['description'];
     ?>
-    <section class="<?php echo $sectionClass; ?>">
-        <div class="<?php echo $textClass; ?>">
-            <div class="text">
-                <h2><?php echo htmlspecialchars($sectionTitle); ?></h2>
-                <p><?php echo htmlspecialchars($sectionDesc); ?></p>
-            </div>
-        </div>
-        <div class="gallery-images">
-            <?php foreach ($sectionItems as $index => $item): ?>
-                <img src="<?php echo htmlspecialchars($item['image']); ?>" class="<?php echo $index === 0 ? 'active' : ''; ?>" alt="<?php echo htmlspecialchars($item['title']); ?>">
-            <?php endforeach; ?>
-        </div>
-    </section>
-    <?php endforeach; ?>
 
-    <?php include 'footer.php'; ?> 
-    <script src="js/gallery.js"></script>
+    <div class="welcome-card">
+        <h1>Dashboard Admin</h1>
+        <p>Selamat datang kembali, <strong><?php echo htmlspecialchars($username); ?></strong></p>
+    </div>
+    <div class="nav-menu">
+        <div class="nav-card">
+            <h3>Manajemen Menu</h3>
+            <p>Tambah, edit, dan hapus item menu restoran</p>
+            <a href="add_menu/index.php">Kelola Menu</a>
+        </div>
+        <div class="nav-card">
+            <h3>Manajemen Galeri</h3>
+            <p>Tambah, edit, dan hapus foto galeri restoran</p>
+            <a href="add_gallery/index.php">Kelola Galeri</a>
+        </div>
+        <div class="nav-card">
+            <h3>Manajemen News</h3>
+            <p>Tambah, edit, dan hapus berita di halaman pembaruan</p>
+            <a href="add_news/index.php">Kelola News</a>
+        </div>
+        <div class="nav-card">
+            <h3>Kelola Admin</h3>
+            <p>Kelola akun admin dan owner (hanya owner yang dapat mengakses)</p>
+            <a href="kelola_admin/index.php">Kelola Admin</a>
+        </div>
+    </div>
+ 
+    <div class="logout-section">
+        <a href="logout.php" class="logout-btn">⎋ Logout</a>
+    </div>
+ 
+</div>
+ 
 </body>
 </html>

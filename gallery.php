@@ -4,40 +4,67 @@
     include 'header.php';
 
     $gallery_items = [];
-    $gallery_query = mysqli_query($conn, "SELECT title, image FROM gallery_items ORDER BY id ASC");
+    $gallery_query = mysqli_query($conn, "SELECT title, image, section FROM gallery_items ORDER BY section ASC, id ASC");
     if ($gallery_query) {
         while ($row = mysqli_fetch_assoc($gallery_query)) {
             $gallery_items[] = $row;
         }
     }
 
-    $defaultSection1 = [
-        ['title' => 'Daily Activity at Noma', 'image' => './Aset/DIT08383.jpg'],
-        ['title' => 'Daily Activity at Noma', 'image' => './Aset/DIT08283.jpg'],
-    ];
-    $defaultSection2 = [
-        ['title' => 'Human Touch Brand', 'image' => './Aset/DIT08293.jpg'],
-        ['title' => 'Human Touch Brand', 'image' => './Aset/DIT08305.jpg'],
-        ['title' => 'Human Touch Brand', 'image' => './Aset/DIT08316.jpg'],
-        ['title' => 'Human Touch Brand', 'image' => './Aset/DIT08319.jpg'],
-        ['title' => 'Human Touch Brand', 'image' => './Aset/DIT08339.jpg'],
-    ];
-    $defaultSection3 = [
-        ['title' => 'Take A Break With Noma', 'image' => './Aset/DIT08004.jpg'],
-        ['title' => 'Take A Break With Noma', 'image' => './Aset/DIT01161.jpg'],
-    ];
-
-    function getSectionImages($items, $start, $length, $default) {
-        $section = array_slice($items, $start, $length);
-        if (count($section) < $length) {
-            $section = array_merge($section, array_slice($default, 0, $length - count($section)));
-        }
-        return $section;
+    $sections = [];
+    foreach ($gallery_items as $item) {
+        $section_id = max(1, (int)($item['section'] ?? 1));
+        $sections[$section_id][] = $item;
     }
 
-    $section1 = getSectionImages($gallery_items, 0, 2, $defaultSection1);
-    $section2 = getSectionImages($gallery_items, 2, 5, $defaultSection2);
-    $section3 = getSectionImages($gallery_items, 7, 2, $defaultSection3);
+    $defaultSections = [
+        1 => [
+            ['title' => 'Daily Activity at Noma', 'image' => './Aset/DIT08383.jpg'],
+            ['title' => 'Daily Activity at Noma', 'image' => './Aset/DIT08283.jpg'],
+        ],
+        2 => [
+            ['title' => 'Human Touch Brand', 'image' => './Aset/DIT08293.jpg'],
+            ['title' => 'Human Touch Brand', 'image' => './Aset/DIT08305.jpg'],
+            ['title' => 'Human Touch Brand', 'image' => './Aset/DIT08316.jpg'],
+            ['title' => 'Human Touch Brand', 'image' => './Aset/DIT08319.jpg'],
+            ['title' => 'Human Touch Brand', 'image' => './Aset/DIT08339.jpg'],
+        ],
+        3 => [
+            ['title' => 'Take A Break With Noma', 'image' => './Aset/DIT08004.jpg'],
+            ['title' => 'Take A Break With Noma', 'image' => './Aset/DIT01161.jpg'],
+        ],
+    ];
+
+    for ($section_id = 1; $section_id <= 3; $section_id++) {
+        if (!isset($sections[$section_id])) {
+            $sections[$section_id] = [];
+        }
+    }
+
+    $sectionTitles = [
+        1 => ['title' => 'Daily Activity at Noma', 'description' => 'Tempat terbaik untuk bersantai, bekerja, dan menikmati momen bersama orang-orang tersayang.'],
+        2 => ['title' => 'Human Touch Brand', 'description' => 'Dibuat oleh manusia, untuk manusia. Dengan penuh perhatian di setiap langkahnya.'],
+        3 => ['title' => 'Take A Break With Noma', 'description' => 'Slow down, you deserve a break.'],
+    ];
+
+    function ensureDefaultItems(array $items, int $sectionId): array {
+        global $defaultSections;
+        $requiredCount = $sectionId === 2 ? 5 : 2;
+        if (count($items) >= $requiredCount) {
+            return $items;
+        }
+
+        $defaultItems = $defaultSections[$sectionId] ?? [];
+        return array_merge($items, array_slice($defaultItems, 0, $requiredCount - count($items)));
+    }
+
+    foreach ($sections as $section_id => $items) {
+        if ($section_id <= 3) {
+            $sections[$section_id] = ensureDefaultItems($items, $section_id);
+        }
+    }
+
+    ksort($sections);
 ?>
 
 <script>
@@ -50,43 +77,40 @@
     });
 </script>
 
-    <section class="image">
-        <div class="text-left">
-            <h2>Daily Activity at Noma</h2>
-            <p>Tempat terbaik untuk bersantai, bekerja, dan menikmati momen bersama orang-orang tersayang.</p>
-        </div>
-        <div class="right">
-            <?php foreach ($section1 as $index => $item): ?>
-                <img src="<?php echo htmlspecialchars($item['image']); ?>" class="slide<?php echo $index === 0 ? ' active' : ''; ?>" alt="<?php echo htmlspecialchars($item['title']); ?>">
-            <?php endforeach; ?>
-        </div>
-    </section>
-
-    <section class="image reverse">
-        <div class="img-left">
-            <?php foreach ($section2 as $index => $item): ?>
-                <img src="<?php echo htmlspecialchars($item['image']); ?>" class="slide2<?php echo $index === 0 ? ' active2' : ''; ?>" alt="<?php echo htmlspecialchars($item['title']); ?>">
-            <?php endforeach; ?>
-        </div>
-        <div class="text-right">
-            <div class="text">
-                <h2>Human Touch Brand</h2>
-                <p>Dibuat oleh manusia, untuk manusia. Dengan penuh perhatian di setiap langkahnya.</p>
+    <?php foreach ($sections as $section_id => $sectionItems):
+        $isReverse = $section_id % 2 === 0;
+        $sectionClass = $isReverse ? 'image reverse gallery-section' : 'image gallery-section';
+        $imageContainerClass = $isReverse ? 'img-left' : 'right';
+        $textClass = $isReverse ? 'text-right' : 'text-left';
+        $sectionTitle = $sectionTitles[$section_id]['title'] ?? 'Gallery Section ' . $section_id;
+        $sectionDesc = $sectionTitles[$section_id]['description'] ?? 'Koleksi foto section ' . $section_id . ' untuk galeri Noma.';
+    ?>
+    <section class="<?php echo $sectionClass; ?>">
+        <?php if (!$isReverse): ?>
+            <div class="<?php echo $textClass; ?>">
+                <h2><?php echo htmlspecialchars($sectionTitle); ?></h2>
+                <p><?php echo htmlspecialchars($sectionDesc); ?></p>
             </div>
-        </div>
+            <div class="<?php echo $imageContainerClass; ?> gallery-images">
+                <?php foreach ($sectionItems as $index => $item): ?>
+                    <img src="<?php echo htmlspecialchars($item['image']); ?>" class="slide<?php echo $index === 0 ? ' active' : ''; ?>" alt="<?php echo htmlspecialchars($item['title']); ?>">
+                <?php endforeach; ?>
+            </div>
+        <?php else: ?>
+            <div class="<?php echo $imageContainerClass; ?> gallery-images">
+                <?php foreach ($sectionItems as $index => $item): ?>
+                    <img src="<?php echo htmlspecialchars($item['image']); ?>" class="slide<?php echo $index === 0 ? ' active' : ''; ?>" alt="<?php echo htmlspecialchars($item['title']); ?>">
+                <?php endforeach; ?>
+            </div>
+            <div class="<?php echo $textClass; ?>">
+                <div class="text">
+                    <h2><?php echo htmlspecialchars($sectionTitle); ?></h2>
+                    <p><?php echo htmlspecialchars($sectionDesc); ?></p>
+                </div>
+            </div>
+        <?php endif; ?>
     </section>
-
-    <section class="image">
-        <div class="text-left">
-            <h2>Take A Break With Noma</h2>
-            <p>Slow down, you deserve a break.</p>
-        </div>
-        <div class="right">
-            <?php foreach ($section3 as $index => $item): ?>
-                <img src="<?php echo htmlspecialchars($item['image']); ?>" class="slide3<?php echo $index === 0 ? ' active3' : ''; ?>" alt="<?php echo htmlspecialchars($item['title']); ?>">
-            <?php endforeach; ?>
-        </div>
-    </section>
+    <?php endforeach; ?>
 
     <?php include 'footer.php'; ?> 
     <script src="./js/Galery.js"></script>

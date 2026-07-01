@@ -17,6 +17,15 @@ if (!isset($conn) || !($conn instanceof mysqli)) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save'])) {
     $title = trim($_POST['title'] ?? '');
+    $section = $_POST['section'] ?? '1';
+
+    if ($section === 'new') {
+        $section_result = mysqli_query($conn, 'SELECT MAX(section) AS max_section FROM gallery_items');
+        $section_row = $section_result ? mysqli_fetch_assoc($section_result) : null;
+        $section = $section_row && isset($section_row['max_section']) ? ((int)$section_row['max_section'] + 1) : 4;
+    } else {
+        $section = max(1, (int)$section);
+    }
 
     if ($title === '') {
         $error = 'Judul foto wajib diisi.';
@@ -66,8 +75,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save'])) {
         exit;
     }
 
-    $stmt = mysqli_prepare($conn, 'INSERT INTO gallery_items (title, image) VALUES (?, ?)');
-    mysqli_stmt_bind_param($stmt, 'ss', $title, $image_path);
+    $stmt = mysqli_prepare($conn, 'INSERT INTO gallery_items (title, image, section) VALUES (?, ?, ?)');
+    mysqli_stmt_bind_param($stmt, 'ssi', $title, $image_path, $section);
 
     if (mysqli_stmt_execute($stmt)) {
         header('Location: index.php?success=1');

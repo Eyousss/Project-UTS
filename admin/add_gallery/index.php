@@ -14,7 +14,7 @@ $success = isset($_GET['success']) && $_GET['success'] === '1';
 $error = isset($_GET['error']) ? $_GET['error'] : '';
 
 $gallery_items = [];
-$gallery_query = mysqli_query($conn, "SELECT id, title, image, created_at FROM gallery_items ORDER BY id DESC");
+$gallery_query = mysqli_query($conn, "SELECT id, title, image, section_order, section_name, created_at FROM gallery_items ORDER BY section_order ASC, id DESC");
 if ($gallery_query) {
     while ($row = mysqli_fetch_assoc($gallery_query)) {
         $gallery_items[] = $row;
@@ -47,6 +47,17 @@ if ($gallery_query) {
         <label for="title">Judul Foto</label>
         <input type="text" id="title" name="title" placeholder="Contoh: Daily Activity" required>
 
+        <label for="section">Pilih Section</label>
+        <select id="section" name="section" required>
+            <option value="1">Daily Activity at Noma</option>
+            <option value="2">Human Touch Brand</option>
+            <option value="3">Take A Break With Noma</option>
+            <option value="new">Section Baru</option>
+        </select>
+
+        <label for="new_section_name" id="new-section-label" style="display:none;">Nama Section Baru</label>
+        <input type="text" id="new_section_name" name="new_section_name" placeholder="Masukkan nama section baru" style="display:none;" />
+
         <label for="image">Foto Galeri</label>
         <input type="file" id="image" name="image" accept="image/*" required>
 
@@ -57,13 +68,14 @@ if ($gallery_query) {
     <?php if (!empty($gallery_items)): ?>
         <table>
             <thead>
-                <tr><th>No</th><th>Judul</th><th>Foto</th><th>Tanggal</th></tr>
+                <tr><th>No</th><th>Judul</th><th>Section</th><th>Foto</th><th>Tanggal</th></tr>
             </thead>
             <tbody>
-            <?php $no = 1; foreach ($gallery_items as $item): ?>
+            <?php $no = 1; $defaultSectionLabels = [1 => 'Daily Activity at Noma', 2 => 'Human Touch Brand', 3 => 'Take A Break With Noma']; foreach ($gallery_items as $item): ?>
                 <tr>
                     <td><?php echo $no++; ?></td>
                     <td><?php echo htmlspecialchars($item['title']); ?></td>
+                    <td><?php echo htmlspecialchars($item['section_name'] ? $item['section_name'] : (isset($defaultSectionLabels[$item['section_order']]) ? $defaultSectionLabels[$item['section_order']] : 'Section ' . $item['section_order'])); ?></td>
                     <td><img src="../../<?php echo htmlspecialchars($item['image']); ?>" alt="<?php echo htmlspecialchars($item['title']); ?>"></td>
                     <td><?php echo htmlspecialchars($item['created_at']); ?></td>
                 </tr>

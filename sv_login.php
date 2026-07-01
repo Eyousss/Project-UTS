@@ -1,22 +1,25 @@
 <?php
-session_start();    
+session_start();
 
 include "koneksi.php";
 
-$username = $_POST['username'];
-$password = $_POST['password'];
+$username = $_POST['username'] ?? '';
+$password = MD5($_POST['password'] ?? '');
 
-$sql = "select * from users where username='$username' and password='$password'";
-$query = mysqli_query($conn,$sql);
-$num = mysqli_num_rows($query);
+$stmt = $conn->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
+$stmt->bind_param("ss", $username, $password);
+$stmt->execute();
 
-if($num > 0){
+$result = $stmt->get_result();
+$num = $result->num_rows;
+
+if ($num > 0) {
     $_SESSION['username'] = $username;
     $_SESSION['admin'] = true;
     header("Location: admin/dashboard.php");
     exit;
-}else
+} else {
     header("Location: login.php");
     exit;
-
+}
 ?>

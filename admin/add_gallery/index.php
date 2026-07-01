@@ -54,12 +54,6 @@ if ($gallery_query) {
             <option value="3">Take A Break With Noma</option>
         </select>
 
-        <label for="position">Posisi Gambar</label>
-        <select id="position" name="position" required>
-            <option value="right">Right</option>
-            <option value="left">Left</option>
-        </select>
-
         <label for="image">Foto Galeri</label>
         <input type="file" id="image" name="image" accept="image/*" required>
 

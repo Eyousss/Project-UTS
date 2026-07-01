@@ -99,13 +99,13 @@
             </div>
             <div class="<?php echo $imageContainerClass; ?> gallery-images">
                 <?php foreach ($sectionItems as $index => $item): ?>
-                    <img src="<?php echo htmlspecialchars($item['image']); ?>" class="slide<?php echo $index === 0 ? ' active' : ''; ?>" alt="<?php echo htmlspecialchars($item['title']); ?>">
+                    <img src="<?php echo htmlspecialchars($item['image']); ?>" class="gallery-slide<?php echo $index === 0 ? ' active' : ''; ?>" alt="<?php echo htmlspecialchars($item['title']); ?>">
                 <?php endforeach; ?>
             </div>
         <?php else: ?>
             <div class="<?php echo $imageContainerClass; ?> gallery-images">
                 <?php foreach ($sectionItems as $index => $item): ?>
-                    <img src="<?php echo htmlspecialchars($item['image']); ?>" class="slide<?php echo $index === 0 ? ' active' : ''; ?>" alt="<?php echo htmlspecialchars($item['title']); ?>">
+                    <img src="<?php echo htmlspecialchars($item['image']); ?>" class="gallery-slide<?php echo $index === 0 ? ' active' : ''; ?>" alt="<?php echo htmlspecialchars($item['title']); ?>">
                 <?php endforeach; ?>
             </div>
             <div class="<?php echo $textClass; ?>">
@@ -119,6 +119,6 @@
     <?php endforeach; ?>
 
     <?php include 'footer.php'; ?> 
-    <script src="./js/Galery.js"></script>
+    <script src="./js/gallery.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <?php 
     $page_title = 'Galeri - Noma Coffee & Taichan';
-    $page_css = './css/gallery.css';
+    $page_css = 'css/gallery.css';
     include 'header.php';
 
     $gallery_items = [];
@@ -82,7 +82,7 @@
             1 => 'left',
             2 => 'right',
             3 => 'left',
-        ];
+        ]; 
         $sectionPosition = $sectionPositionMap[$section_id] ?? 'right';
         $isReverse = $sectionPosition === 'left';
         $sectionClass = $isReverse ? 'image reverse gallery-section' : 'image gallery-section';
@@ -119,6 +119,6 @@
     <?php endforeach; ?>
 
     <?php include 'footer.php'; ?> 
-    <script src="./js/Galery.js"></script>
+    <script src="js/gallery.js"></script>
 </body>
 </html>

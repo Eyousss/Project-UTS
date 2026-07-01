@@ -43,7 +43,7 @@ include "security.php";
     </div>
  
     <div class="logout-section">
-        <a href="../logout.php" class="logout-btn">⎋ Logout</a>
+        <a href="logout.php" class="logout-btn">⎋ Logout</a>
     </div>
  
 </div>

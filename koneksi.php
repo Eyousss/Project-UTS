@@ -32,20 +32,9 @@ if ($galleryTableCheck && mysqli_num_rows($galleryTableCheck) === 1) {
         mysqli_query($conn, "ALTER TABLE gallery_items ADD COLUMN position VARCHAR(10) NOT NULL DEFAULT 'right'");
     }
 
-    $sectionOrderColumnCheck = mysqli_query($conn, "SHOW COLUMNS FROM gallery_items LIKE 'section_order'");
-    if ($sectionOrderColumnCheck && mysqli_num_rows($sectionOrderColumnCheck) === 0) {
-        mysqli_query($conn, "ALTER TABLE gallery_items ADD COLUMN section_order INT NOT NULL DEFAULT 1");
-    }
-
     $sectionNameColumnCheck = mysqli_query($conn, "SHOW COLUMNS FROM gallery_items LIKE 'section_name'");
     if ($sectionNameColumnCheck && mysqli_num_rows($sectionNameColumnCheck) === 0) {
         mysqli_query($conn, "ALTER TABLE gallery_items ADD COLUMN section_name VARCHAR(100) DEFAULT NULL");
-    }
-
-    $oldSectionColumnCheck = mysqli_query($conn, "SHOW COLUMNS FROM gallery_items LIKE 'section'");
-    if ($oldSectionColumnCheck && mysqli_num_rows($oldSectionColumnCheck) > 0 && $sectionOrderColumnCheck && mysqli_num_rows($sectionOrderColumnCheck) === 0) {
-        mysqli_query($conn, "ALTER TABLE gallery_items ADD COLUMN section_order INT NOT NULL DEFAULT 1");
-        mysqli_query($conn, "UPDATE gallery_items SET section_order = section");
     }
 }
 

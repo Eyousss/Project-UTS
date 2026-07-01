@@ -14,7 +14,7 @@ $success = isset($_GET['success']) && $_GET['success'] === '1';
 $error = isset($_GET['error']) ? $_GET['error'] : '';
 
 $gallery_items = [];
-$gallery_query = mysqli_query($conn, "SELECT id, title, image, section_order, section_name, created_at FROM gallery_items ORDER BY section_order ASC, id DESC");
+$gallery_query = mysqli_query($conn, "SELECT id, title, image, section, section_name, position, created_at FROM gallery_items ORDER BY section ASC, id DESC");
 if ($gallery_query) {
     while ($row = mysqli_fetch_assoc($gallery_query)) {
         $gallery_items[] = $row;
@@ -58,6 +58,12 @@ if ($gallery_query) {
         <label for="new_section_name" id="new-section-label" style="display:none;">Nama Section Baru</label>
         <input type="text" id="new_section_name" name="new_section_name" placeholder="Masukkan nama section baru" style="display:none;" />
 
+        <label for="position">Posisi Gambar</label>
+        <select id="position" name="position" required>
+            <option value="right">Right</option>
+            <option value="left">Left</option>
+        </select>
+
         <label for="image">Foto Galeri</label>
         <input type="file" id="image" name="image" accept="image/*" required>
 
@@ -75,7 +81,7 @@ if ($gallery_query) {
                 <tr>
                     <td><?php echo $no++; ?></td>
                     <td><?php echo htmlspecialchars($item['title']); ?></td>
-                    <td><?php echo htmlspecialchars(!empty($item['section_name']) ? $item['section_name'] : (isset($defaultSectionLabels[$item['section_order']]) ? $defaultSectionLabels[$item['section_order']] : 'Section ' . $item['section_order'])); ?></td>
+                    <td><?php echo htmlspecialchars(!empty($item['section_name']) ? $item['section_name'] : (isset($defaultSectionLabels[$item['section']]) ? $defaultSectionLabels[$item['section']] : 'Section ' . $item['section'])); ?></td>
                     <td><img src="../../<?php echo htmlspecialchars($item['image']); ?>" alt="<?php echo htmlspecialchars($item['title']); ?>"></td>
                     <td><?php echo htmlspecialchars($item['created_at']); ?></td>
                 </tr>
@@ -83,7 +89,31 @@ if ($gallery_query) {
             </tbody>
         </table>
     <?php else: ?>
+
         <p>Belum ada galeri.</p>
     <?php endif; ?>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var sectionSelect = document.getElementById('section');
+            var newSectionLabel = document.getElementById('new-section-label');
+            var newSectionInput = document.getElementById('new_section_name');
+
+            function toggleNewSection() {
+                if (sectionSelect.value === 'new') {
+                    newSectionLabel.style.display = 'block';
+                    newSectionInput.style.display = 'block';
+                    newSectionInput.required = true;
+                } else {
+                    newSectionLabel.style.display = 'none';
+                    newSectionInput.style.display = 'none';
+                    newSectionInput.required = false;
+                    newSectionInput.value = '';
+                }
+            }
+
+            sectionSelect.addEventListener('change', toggleNewSection);
+            toggleNewSection();
+        });
+    </script>
 </body>
 </html>

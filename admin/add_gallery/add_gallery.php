@@ -17,13 +17,13 @@ if (!isset($conn) || !($conn instanceof mysqli)) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save'])) {
     $title = trim($_POST['title'] ?? '');
-    $section_order = max(1, (int)($_POST['section'] ?? 1));
+    $section = max(1, (int)($_POST['section'] ?? 1));
     $section_name = null;
 
     if (isset($_POST['section']) && $_POST['section'] === 'new') {
-        $section_result = mysqli_query($conn, 'SELECT MAX(section_order) AS max_section FROM gallery_items');
+        $section_result = mysqli_query($conn, 'SELECT MAX(section) AS max_section FROM gallery_items');
         $section_row = $section_result ? mysqli_fetch_assoc($section_result) : null;
-        $section_order = $section_row && isset($section_row['max_section']) ? ((int)$section_row['max_section'] + 1) : 4;
+        $section = $section_row && isset($section_row['max_section']) ? ((int)$section_row['max_section'] + 1) : 4;
         $section_name = trim($_POST['new_section_name'] ?? '');
         if ($section_name === '') {
             $error = 'Nama section baru wajib diisi.';
@@ -36,6 +36,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save'])) {
         $error = 'Judul foto wajib diisi.';
         header('Location: index.php?error=' . urlencode($error));
         exit;
+    }
+
+    $position = 'right';
+    if (isset($_POST['position']) && in_array($_POST['position'], ['left', 'right'], true)) {
+        $position = $_POST['position'];
     }
 
     $image_path = '';
@@ -80,8 +85,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save'])) {
         exit;
     }
 
-    $stmt = mysqli_prepare($conn, 'INSERT INTO gallery_items (title, image, section_order, section_name) VALUES (?, ?, ?, ?)');
-    mysqli_stmt_bind_param($stmt, 'ssis', $title, $image_path, $section_order, $section_name);
+    $stmt = mysqli_prepare($conn, 'INSERT INTO gallery_items (title, image, section, section_name, position) VALUES (?, ?, ?, ?, ?)');
+    mysqli_stmt_bind_param($stmt, 'sisss', $title, $image_path, $section, $section_name, $position);
 
     if (mysqli_stmt_execute($stmt)) {
         header('Location: index.php?success=1');

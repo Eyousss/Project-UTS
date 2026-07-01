@@ -4,7 +4,7 @@
     include 'header.php';
 
     $gallery_items = [];
-    $gallery_query = mysqli_query($conn, "SELECT title, image, section_order, section_name FROM gallery_items ORDER BY section_order ASC, id ASC");
+    $gallery_query = mysqli_query($conn, "SELECT title, image, section, section_name, position FROM gallery_items ORDER BY section ASC, id ASC");
     if ($gallery_query) {
         while ($row = mysqli_fetch_assoc($gallery_query)) {
             $gallery_items[] = $row;
@@ -13,7 +13,7 @@
 
     $sections = [];
     foreach ($gallery_items as $item) {
-        $section_id = max(1, (int)($item['section_order'] ?? 1));
+        $section_id = max(1, (int)($item['section'] ?? 1));
         $sections[$section_id][] = $item;
     }
 
@@ -64,6 +64,19 @@
         }
     }
 
+    $sectionTitlesById = [];
+    foreach ($sections as $section_id => $items) {
+        foreach ($items as $item) {
+            if (!empty($item['section_name'])) {
+                $sectionTitlesById[$section_id] = [
+                    'title' => $item['section_name'],
+                    'description' => 'Koleksi foto pada section baru: ' . $item['section_name'],
+                ];
+                break;
+            }
+        }
+    }
+
     ksort($sections);
 ?>
 
@@ -78,12 +91,24 @@
 </script>
 
     <?php foreach ($sections as $section_id => $sectionItems):
-        $isReverse = $section_id % 2 === 0;
+        $sectionPosition = 'right';
+        foreach ($sectionItems as $item) {
+            if (!empty($item['position'])) {
+                $sectionPosition = $item['position'];
+                break;
+            }
+        }
+
+        if (empty($sectionItems)) {
+            $sectionPosition = $section_id % 2 === 0 ? 'left' : 'right';
+        }
+
+        $isReverse = $sectionPosition === 'left';
         $sectionClass = $isReverse ? 'image reverse gallery-section' : 'image gallery-section';
         $imageContainerClass = $isReverse ? 'img-left' : 'right';
         $textClass = $isReverse ? 'text-right' : 'text-left';
-        $sectionTitle = $sectionTitles[$section_id]['title'] ?? 'Gallery Section ' . $section_id;
-        $sectionDesc = $sectionTitles[$section_id]['description'] ?? 'Koleksi foto section ' . $section_id . ' untuk galeri Noma.';
+        $sectionTitle = $sectionTitlesById[$section_id]['title'] ?? $sectionTitles[$section_id]['title'] ?? 'Gallery Section ' . $section_id;
+        $sectionDesc = $sectionTitlesById[$section_id]['description'] ?? $sectionTitles[$section_id]['description'] ?? 'Koleksi foto section ' . $section_id . ' untuk galeri Noma.';
     ?>
     <section class="<?php echo $sectionClass; ?>">
         <?php if (!$isReverse): ?>

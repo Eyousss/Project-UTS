@@ -52,11 +52,7 @@ if ($gallery_query) {
             <option value="1">Daily Activity at Noma</option>
             <option value="2">Human Touch Brand</option>
             <option value="3">Take A Break With Noma</option>
-            <option value="new">Section Baru</option>
         </select>
-
-        <label for="new_section_name" id="new-section-label" style="display:none;">Nama Section Baru</label>
-        <input type="text" id="new_section_name" name="new_section_name" placeholder="Masukkan nama section baru" style="display:none;" />
 
         <label for="position">Posisi Gambar</label>
         <select id="position" name="position" required>
@@ -92,28 +88,5 @@ if ($gallery_query) {
 
         <p>Belum ada galeri.</p>
     <?php endif; ?>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var sectionSelect = document.getElementById('section');
-            var newSectionLabel = document.getElementById('new-section-label');
-            var newSectionInput = document.getElementById('new_section_name');
-
-            function toggleNewSection() {
-                if (sectionSelect.value === 'new') {
-                    newSectionLabel.style.display = 'block';
-                    newSectionInput.style.display = 'block';
-                    newSectionInput.required = true;
-                } else {
-                    newSectionLabel.style.display = 'none';
-                    newSectionInput.style.display = 'none';
-                    newSectionInput.required = false;
-                    newSectionInput.value = '';
-                }
-            }
-
-            sectionSelect.addEventListener('change', toggleNewSection);
-            toggleNewSection();
-        });
-    </script>
 </body>
 </html>

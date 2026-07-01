@@ -14,9 +14,17 @@ body {
 
 a{
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
+
+a:hover{
+    text-decoration: underline;
+    color: black;
+}
+a:visited {
+    color: black;
+}
 .login-section {
     min-height: 80vh;
     display: flex;

@@ -81,7 +81,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save'])) {
     exit;
 }
 
-// Helper function untuk sanitasi nama file
 function sanitize_filename($filename) {
     $filename = preg_replace('/[^a-zA-Z0-9_-]/', '_', $filename);
     return strtolower($filename);

@@ -10,7 +10,11 @@ include 'koneksi.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save'])) {
     $name = trim($_POST['name'] ?? '');
     $category = trim($_POST['category'] ?? 'makanan');
+    $default_link = 'https://food.grab.com/id/en/restaurant/noma-coffee-taichan-akcaya-delivery/6-C7VJE6BKJGNTMA?sourceID=20251226_130710_5364ccee9a0145128cb3ddc96a24bcd3_MEXMPS';
     $link = trim($_POST['link'] ?? '');
+    if ($link === '') {
+        $link = $default_link;
+    }
 
     if ($name === '' || !in_array($category, ['makanan', 'minuman'], true)) {
         $error = 'Nama menu dan kategori wajib diisi.';

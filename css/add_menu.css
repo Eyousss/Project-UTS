@@ -1,0 +1,169 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: #f7f2eb;
+  color: #2f1f1a;
+  padding: 32px 24px 48px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #361818;
+  margin-bottom: 8px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 24px;
+  color: #c4845a;
+  font-weight: 600;
+}
+
+.back-link:hover {
+  color: #a8663e;
+}
+
+.alert {
+  padding: 12px 14px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+}
+
+.alert-success {
+  background: #eaf7ee;
+  color: #2f6b3f;
+  border: 1px solid #b7e2c0;
+}
+
+.alert-error {
+  background: #fdeceb;
+  color: #a33a2e;
+  border: 1px solid #f4b7b0;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid rgba(60, 30, 10, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(54, 24, 24, 0.06);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  color: #361818;
+}
+
+form {
+  display: grid;
+  gap: 14px;
+}
+
+label {
+  font-weight: 600;
+  color: #4c2e2e;
+}
+
+input,
+select,
+button {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #d9c8bd;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+input:focus,
+select:focus {
+  border-color: #c4845a;
+  box-shadow: 0 0 0 3px rgba(196, 132, 90, 0.15);
+}
+
+button {
+  background: #c4845a;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background: #a8663e;
+}
+
+.helper-text {
+  margin-top: -4px;
+  font-size: 0.85rem;
+  color: #7a5c4d;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+th,
+td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #eee2d8;
+  text-align: left;
+  vertical-align: middle;
+}
+
+th {
+  background: #f0e2d6;
+  color: #361818;
+}
+
+td img {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+a.button,
+td a {
+  display: inline-block;
+  padding: 7px 10px;
+  background: #2d89ef;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  margin-right: 4px;
+  font-size: 0.9rem;
+}
+
+td a:last-child {
+  background: #c84f4f;
+}
+
+.empty-state {
+  padding: 20px;
+  text-align: center;
+  color: #6d4f45;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #eee2d8;
+}

@@ -1,9 +1,10 @@
 <?php
 session_start();
 
-$username = $_SESSION['username'];
+$username = $_SESSION['username'] ?? '';
+$role = $_SESSION['role'] ?? '';
 
-if($username == ""){
+if ($username == "") {
     header("Location: ../login.php");
     exit;
 }

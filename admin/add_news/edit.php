@@ -21,14 +21,6 @@ if (!$news) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Edit News</title>
-    <style>
-        body{font-family:Arial,Helvetica,sans-serif;margin:20px}
-        label{display:block;margin-top:10px;font-weight:600}
-        input, textarea{width:100%;padding:8px;margin-top:4px;border:1px solid #ccc;border-radius:4px}
-        textarea{min-height:120px;resize:vertical}
-        button, a.button{display:inline-block;padding:8px 12px;background:#2d89ef;color:#fff;text-decoration:none;border:none;border-radius:4px;cursor:pointer}
-        button:hover, a.button:hover{background:#1a5fb4}
-    </style>
 </head>
 <body>
     <h1>Edit News</h1>

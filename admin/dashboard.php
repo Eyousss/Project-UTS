@@ -10,6 +10,32 @@ include "security.php";
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/navbar_dashboard.css">
     <link rel="stylesheet" href="../css/dashboard.css">
+    <style>
+        .notification {
+            padding: 15px 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        .notification.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-left: 4px solid #28a745;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 <body>
  
@@ -20,6 +46,17 @@ include "security.php";
  
 <div class="wrapper">
  
+    <?php
+    $success = isset($_GET['success']) ? $_GET['success'] : '';
+    if ($success === 'added') {
+        echo '<div class="notification success">✓ Admin baru berhasil ditambahkan</div>';
+    } elseif ($success === 'updated') {
+        echo '<div class="notification success">✓ Admin berhasil diperbarui</div>';
+    } elseif ($success === 'deleted') {
+        echo '<div class="notification success">✓ Admin berhasil dihapus</div>';
+    }
+    ?>
+
     <div class="welcome-card">
         <h1>Dashboard Admin</h1>
         <p>Selamat datang kembali, <strong><?php echo htmlspecialchars($username); ?></strong></p>
@@ -39,6 +76,11 @@ include "security.php";
             <h3>Manajemen News</h3>
             <p>Tambah, edit, dan hapus berita di halaman pembaruan</p>
             <a href="add_news/index.php">Kelola News</a>
+        </div>
+        <div class="nav-card">
+            <h3>Kelola Admin</h3>
+            <p>Kelola akun admin dan owner (hanya owner yang dapat mengakses)</p>
+            <a href="kelola_admin/index.php">Kelola Admin</a>
         </div>
     </div>
  

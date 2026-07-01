@@ -26,7 +26,18 @@ if ($newsTableCheck && mysqli_num_rows($newsTableCheck) === 0) {
 }
 
 $galleryTableCheck = mysqli_query($conn, "SHOW TABLES LIKE 'gallery_items'");
-if ($galleryTableCheck && mysqli_num_rows($galleryTableCheck) === 1) {
+if ($galleryTableCheck && mysqli_num_rows($galleryTableCheck) === 0) {
+    mysqli_query($conn, "CREATE TABLE gallery_items (
+        id INT NOT NULL AUTO_INCREMENT,
+        title VARCHAR(100) NOT NULL,
+        image VARCHAR(255) NOT NULL,
+        section INT NOT NULL DEFAULT 1,
+        section_name VARCHAR(100) DEFAULT NULL,
+        position VARCHAR(10) NOT NULL DEFAULT 'right',
+        created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (id)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+} else {
     $positionColumnCheck = mysqli_query($conn, "SHOW COLUMNS FROM gallery_items LIKE 'position'");
     if ($positionColumnCheck && mysqli_num_rows($positionColumnCheck) === 0) {
         mysqli_query($conn, "ALTER TABLE gallery_items ADD COLUMN position VARCHAR(10) NOT NULL DEFAULT 'right'");
@@ -35,6 +46,15 @@ if ($galleryTableCheck && mysqli_num_rows($galleryTableCheck) === 1) {
     $sectionNameColumnCheck = mysqli_query($conn, "SHOW COLUMNS FROM gallery_items LIKE 'section_name'");
     if ($sectionNameColumnCheck && mysqli_num_rows($sectionNameColumnCheck) === 0) {
         mysqli_query($conn, "ALTER TABLE gallery_items ADD COLUMN section_name VARCHAR(100) DEFAULT NULL");
+    }
+
+    $sectionColumnCheck = mysqli_query($conn, "SHOW COLUMNS FROM gallery_items LIKE 'section'");
+    if ($sectionColumnCheck && mysqli_num_rows($sectionColumnCheck) === 0) {
+        $sectionOrderColumnCheck = mysqli_query($conn, "SHOW COLUMNS FROM gallery_items LIKE 'section_order'");
+        mysqli_query($conn, "ALTER TABLE gallery_items ADD COLUMN section INT NOT NULL DEFAULT 1 AFTER image");
+        if ($sectionOrderColumnCheck && mysqli_num_rows($sectionOrderColumnCheck) === 1) {
+            mysqli_query($conn, "UPDATE gallery_items SET section = section_order");
+        }
     }
 }
 

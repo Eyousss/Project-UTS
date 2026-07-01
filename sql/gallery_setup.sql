@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS gallery_items (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(100) NOT NULL,
     image VARCHAR(255) NOT NULL,
-    section_order INT NOT NULL DEFAULT 1,
+    section INT NOT NULL DEFAULT 1,
     section_name VARCHAR(100) DEFAULT NULL,
     position VARCHAR(10) NOT NULL DEFAULT 'right',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP

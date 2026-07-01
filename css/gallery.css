@@ -64,59 +64,63 @@ a{
 
 .image {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
 }
 
-.text-left {
+.image.reverse {
+  flex-direction: row-reverse;
+}
+
+.text-left,
+.text-right {
   width: 50%;
   padding: 80px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.text-left h2 {
+.text-left .text,
+.text-right .text {
+  width: 100%;
+  max-width: 520px;
+  text-align: center;
+}
+
+.text-left h2,
+.text-right h2 {
   font-size: 40px;
   letter-spacing: 2px;
   margin-bottom: 20px;
-  justify-content: center;
-  display: flex;
   color: #361818;
 }
 
-.text-left p {
+.text-left p,
+.text-right p {
   margin-bottom: 20px;
   line-height: 1.5;
   font-size: 20px;
   color: #361818;
-  text-align: center;
 }
 
-.right {
+.gallery-images {
   width: 50%;
   position: relative;
   overflow: hidden;
 }
 
-.right img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 2;
-}
-
-.slide {
+.gallery-images img {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 1s ease;
-  z-index: 3;
+  transition: opacity 0.8s ease;
 }
 
-.slide.active {
+.gallery-images img.active {
   opacity: 1;
 }
 

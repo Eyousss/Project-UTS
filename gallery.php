@@ -75,26 +75,11 @@
 </script>
 
     <?php foreach ($sections as $section_id => $sectionItems):
-<<<<<<< HEAD
-        $sectionPositionMap = [
-            1 => 'left',
-            2 => 'right',
-            3 => 'left',
-        ]; 
-        $sectionPosition = $sectionPositionMap[$section_id] ?? 'right';
-        $isReverse = $sectionPosition === 'left';
-        $sectionClass = $isReverse ? 'image reverse gallery-section' : 'image gallery-section';
-        $imageContainerClass = $isReverse ? 'img-left' : 'right';
-        $textClass = $isReverse ? 'text-right' : 'text-left';
-        $sectionTitle = $sectionTitles[$section_id]['title'] ?? 'Gallery Section ' . $section_id;
-        $sectionDesc = $sectionTitles[$section_id]['description'] ?? 'Koleksi foto section ' . $section_id . ' untuk galeri Noma.';
-=======
         $isReverse = $section_id % 2 === 0;
         $sectionClass = $isReverse ? 'image reverse' : 'image';
         $textClass = $isReverse ? 'text-right' : 'text-left';
         $sectionTitle = $sectionTitles[$section_id]['title'];
         $sectionDesc = $sectionTitles[$section_id]['description'];
->>>>>>> aurelio
     ?>
     <section class="<?php echo $sectionClass; ?>">
         <div class="<?php echo $textClass; ?>">

@@ -172,3 +172,22 @@ a{
 .image-reverse {
   flex-direction: row-reverse;
 }
+
+.gallery-images {
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-images .gallery-slide {
+  position: absolute !important;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.gallery-images .gallery-slide.active {
+  opacity: 1;
+}

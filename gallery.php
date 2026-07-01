@@ -4,7 +4,7 @@
     include 'header.php';
 
     $gallery_items = [];
-    $gallery_query = mysqli_query($conn, "SELECT title, image, section FROM gallery_items ORDER BY section ASC, id ASC");
+    $gallery_query = mysqli_query($conn, "SELECT title, image, section_order, section_name FROM gallery_items ORDER BY section_order ASC, id ASC");
     if ($gallery_query) {
         while ($row = mysqli_fetch_assoc($gallery_query)) {
             $gallery_items[] = $row;
@@ -13,7 +13,7 @@
 
     $sections = [];
     foreach ($gallery_items as $item) {
-        $section_id = max(1, (int)($item['section'] ?? 1));
+        $section_id = max(1, (int)($item['section_order'] ?? 1));
         $sections[$section_id][] = $item;
     }
 

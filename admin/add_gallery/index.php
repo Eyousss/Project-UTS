@@ -75,7 +75,7 @@ if ($gallery_query) {
                 <tr>
                     <td><?php echo $no++; ?></td>
                     <td><?php echo htmlspecialchars($item['title']); ?></td>
-                    <td><?php echo htmlspecialchars($item['section_name'] ? $item['section_name'] : (isset($defaultSectionLabels[$item['section_order']]) ? $defaultSectionLabels[$item['section_order']] : 'Section ' . $item['section_order'])); ?></td>
+                    <td><?php echo htmlspecialchars(!empty($item['section_name']) ? $item['section_name'] : (isset($defaultSectionLabels[$item['section_order']]) ? $defaultSectionLabels[$item['section_order']] : 'Section ' . $item['section_order'])); ?></td>
                     <td><img src="../../<?php echo htmlspecialchars($item['image']); ?>" alt="<?php echo htmlspecialchars($item['title']); ?>"></td>
                     <td><?php echo htmlspecialchars($item['created_at']); ?></td>
                 </tr>

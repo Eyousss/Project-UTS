@@ -17,14 +17,19 @@ if (!isset($conn) || !($conn instanceof mysqli)) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save'])) {
     $title = trim($_POST['title'] ?? '');
-    $section = $_POST['section'] ?? '1';
+    $section_order = max(1, (int)($_POST['section'] ?? 1));
+    $section_name = null;
 
-    if ($section === 'new') {
-        $section_result = mysqli_query($conn, 'SELECT MAX(section) AS max_section FROM gallery_items');
+    if (isset($_POST['section']) && $_POST['section'] === 'new') {
+        $section_result = mysqli_query($conn, 'SELECT MAX(section_order) AS max_section FROM gallery_items');
         $section_row = $section_result ? mysqli_fetch_assoc($section_result) : null;
-        $section = $section_row && isset($section_row['max_section']) ? ((int)$section_row['max_section'] + 1) : 4;
-    } else {
-        $section = max(1, (int)$section);
+        $section_order = $section_row && isset($section_row['max_section']) ? ((int)$section_row['max_section'] + 1) : 4;
+        $section_name = trim($_POST['new_section_name'] ?? '');
+        if ($section_name === '') {
+            $error = 'Nama section baru wajib diisi.';
+            header('Location: index.php?error=' . urlencode($error));
+            exit;
+        }
     }
 
     if ($title === '') {
@@ -75,8 +80,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save'])) {
         exit;
     }
 
-    $stmt = mysqli_prepare($conn, 'INSERT INTO gallery_items (title, image, section) VALUES (?, ?, ?)');
-    mysqli_stmt_bind_param($stmt, 'ssi', $title, $image_path, $section);
+    $stmt = mysqli_prepare($conn, 'INSERT INTO gallery_items (title, image, section_order, section_name) VALUES (?, ?, ?, ?)');
+    mysqli_stmt_bind_param($stmt, 'ssis', $title, $image_path, $section_order, $section_name);
 
     if (mysqli_stmt_execute($stmt)) {
         header('Location: index.php?success=1');

@@ -69,7 +69,7 @@ if ($role !== 'owner') {
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required placeholder="Masukkan password">
                 <div class="password-note">
-                    💡 Pastikan password yang Anda buat aman dan mudah diingat
+                    Pastikan password yang Anda buat aman dan mudah diingat
                 </div>
             </div>
 

@@ -68,7 +68,7 @@ a{
 }
 
 .image.reverse {
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 
 .text-left,
@@ -76,8 +76,28 @@ a{
   width: 50%;
   padding: 80px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+}
+
+.text-left h2,
+.text-right h2 {
+  max-width: 700px;
+  font-size: 64px;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  color: #361818;
+}
+
+.text-left p,
+.text-right p {
+  max-width: 900px;
+  line-height: 1.6;
+  font-size: 32px;
+  color: #361818;
+  text-align: center;
 }
 
 .text-left .text,

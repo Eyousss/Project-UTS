@@ -79,9 +79,9 @@
 
     <?php foreach ($sections as $section_id => $sectionItems):
         $sectionPositionMap = [
-            1 => 'left',
-            2 => 'right',
-            3 => 'left',
+            1 => 'right',
+            2 => 'left',
+            3 => 'right',
         ];
         $sectionPosition = $sectionPositionMap[$section_id] ?? 'right';
         $isReverse = $sectionPosition === 'left';

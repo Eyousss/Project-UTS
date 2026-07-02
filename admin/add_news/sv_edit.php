@@ -28,7 +28,7 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
         exit;
     }
 
-    $uploadDir = dirname(__DIR__, 2) . '/Aset/upload';
+    $uploadDir = dirname(__DIR__, 2) . '/Aset/upload_news_image';
     if (!is_dir($uploadDir)) {
         mkdir($uploadDir, 0777, true);
     }
@@ -41,7 +41,7 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
         exit;
     }
 
-    $imagePath = 'Aset/upload/' . $fileName;
+    $imagePath = 'Aset/upload_news_image/' . $fileName;
 } else {
     $existing = mysqli_query($conn, "SELECT image FROM news WHERE id=$id LIMIT 1");
     if ($existing && $row = mysqli_fetch_assoc($existing)) {

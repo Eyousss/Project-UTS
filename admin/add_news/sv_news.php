@@ -17,7 +17,7 @@ if (!$title || !$description) {
     exit;
 }
 
-$uploadDir = dirname(__DIR__, 2) . '/Aset/upload';
+$uploadDir = dirname(__DIR__, 2) . '/Aset/upload_news_image';
 if (!is_dir($uploadDir)) {
     mkdir($uploadDir, 0777, true);
 }
@@ -40,7 +40,7 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
         exit;
     }
 
-    $imagePath = 'Aset/upload/' . $fileName;
+    $imagePath = 'Aset/upload_news_image/' . $fileName;
 } else {
     header('Location: index.php?error=' . urlencode('Gambar wajib diunggah.'));
     exit;

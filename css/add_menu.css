@@ -143,20 +143,34 @@ td img {
   border-radius: 8px;
 }
 
-a.button,
-td a {
-  display: inline-block;
-  padding: 7px 10px;
-  background: #2d89ef;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 8px;
-  margin-right: 4px;
-  font-size: 0.9rem;
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-td a:last-child {
+.action-buttons a {
+  display: block;
+  width: 90px;
+  padding: 8px 0;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 8px;
+  font-size: .9rem;
+  font-weight: 600;
+}
+
+.action-buttons a:first-child {
+  background: #2d89ef;
+}
+
+.action-buttons a:last-child {
   background: #c84f4f;
+}
+
+.action-buttons a:hover{
+    opacity:.9;
 }
 
 .empty-state {
@@ -167,3 +181,4 @@ td a:last-child {
   border-radius: 12px;
   border: 1px solid #eee2d8;
 }
+

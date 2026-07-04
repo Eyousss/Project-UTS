@@ -54,7 +54,7 @@ $page_css = '../../css/add_menu.css';
             <div class="card">
                 <table>
                     <thead>
-                        <tr><th>No</th><th>Nama</th><th>Kategori</th><th>Gambar</th><th>Link</th><th>Aksi</th></tr>
+                        <tr><th>No</th><th>Nama</th><th>Kategori</th><th>Gambar</th><th>Aksi</th></tr>
                     </thead>
                     <tbody>
                     <?php $no = 1; while ($row = mysqli_fetch_assoc($res)): ?>
@@ -67,8 +67,7 @@ $page_css = '../../css/add_menu.css';
                                 <?php $imageSrc = '../../' . $imageSrc; ?>
                             <?php endif; ?>
                             <td><img src="<?php echo $imageSrc; ?>" alt="<?php echo htmlspecialchars($row['name']); ?>"></td>
-                            <td><?php echo htmlspecialchars($row['link']); ?></td>
-                            <td>
+                            <td class="action-buttons">
                                 <a href="edit.php?id=<?php echo $row['id']; ?>">Edit</a>
                                 <a href="hapus.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Hapus menu ini?')">Hapus</a>
                             </td>

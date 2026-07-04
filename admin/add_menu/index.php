@@ -41,10 +41,6 @@ $page_css = '../../css/add_menu.css';
                 <label for="image">Gambar</label>
                 <input type="file" id="image" name="image" accept="image/*" required>
 
-                <label for="link">Link Pesanan / Detail</label>
-                <input type="text" id="link" name="link" value="https://food.grab.com/id/en/restaurant/noma-coffee-taichan-akcaya-delivery/6-C7VJE6BKJGNTMA?sourceID=20251226_130710_5364ccee9a0145128cb3ddc96a24bcd3_MEXMPS" readonly>
-                <p class="helper-text">Link ini otomatis dipakai untuk semua menu.</p>
-
                 <button type="submit" name="save">Simpan Menu</button>
             </form>
         </section>

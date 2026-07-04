@@ -41,7 +41,7 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
         exit;
     }
 
-    $imagePath = 'Aset/upload_news_image/' . $fileName;
+    $imagePath = 'assets/images/upload_news_image/' . $fileName;
 } else {
     $existing = mysqli_query($conn, "SELECT image FROM news WHERE id=$id LIMIT 1");
     if ($existing && $row = mysqli_fetch_assoc($existing)) {

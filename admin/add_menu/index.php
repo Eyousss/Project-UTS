@@ -14,7 +14,7 @@ $page_css = '../../assets/css/add_menu.css';
 <head>
     <meta charset="utf-8">
     <title>Manajemen Menu</title>
-    <link rel="stylesheet" href="<?php echo str_replace('../../css/', '../../assets/css/', $page_css); ?>">
+    <link rel="stylesheet" href="<?php echo $page_css; ?>">
 </head>
 <body>
     <div class="container">
@@ -41,10 +41,6 @@ $page_css = '../../assets/css/add_menu.css';
                 <label for="image">Gambar</label>
                 <input type="file" id="image" name="image" accept="image/*" required>
 
-                <label for="link">Link Pesanan / Detail</label>
-                <input type="text" id="link" name="link" value="https://food.grab.com/id/en/restaurant/noma-coffee-taichan-akcaya-delivery/6-C7VJE6BKJGNTMA?sourceID=20251226_130710_5364ccee9a0145128cb3ddc96a24bcd3_MEXMPS" readonly>
-                <p class="helper-text">Link ini otomatis dipakai untuk semua menu.</p>
-
                 <button type="submit" name="save">Simpan Menu</button>
             </form>
         </section>
@@ -58,7 +54,7 @@ $page_css = '../../assets/css/add_menu.css';
             <div class="card">
                 <table>
                     <thead>
-                        <tr><th>No</th><th>Nama</th><th>Kategori</th><th>Gambar</th><th>Link</th><th>Aksi</th></tr>
+                        <tr><th>No</th><th>Nama</th><th>Kategori</th><th>Gambar</th><th>Aksi</th></tr>
                     </thead>
                     <tbody>
                     <?php $no = 1; while ($row = mysqli_fetch_assoc($res)): ?>
@@ -71,8 +67,7 @@ $page_css = '../../assets/css/add_menu.css';
                                 <?php $imageSrc = '../../' . $imageSrc; ?>
                             <?php endif; ?>
                             <td><img src="<?php echo $imageSrc; ?>" alt="<?php echo htmlspecialchars($row['name']); ?>"></td>
-                            <td><?php echo htmlspecialchars($row['link']); ?></td>
-                            <td>
+                            <td class="action-buttons">
                                 <a href="edit.php?id=<?php echo $row['id']; ?>">Edit</a>
                                 <a href="hapus.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Hapus menu ini?')">Hapus</a>
                             </td>

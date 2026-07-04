@@ -1,6 +1,6 @@
 <?php 
     $page_title = 'Galeri - Noma Coffee & Taichan';
-    $page_css = './css/gallery.css';
+    $page_css = './assets/css/gallery.css';
     include 'header.php';
 
     $gallery_items = [];
@@ -19,19 +19,19 @@
 
     $defaultSections = [
         1 => [
-            ['title' => 'Daily Activity at Noma', 'image' => './Aset/DIT08383.jpg'],
-            ['title' => 'Daily Activity at Noma', 'image' => './Aset/DIT08283.jpg'],
+            ['title' => 'Daily Activity at Noma', 'image' => './assets/images/DIT08383.jpg'],
+            ['title' => 'Daily Activity at Noma', 'image' => './assets/images/DIT08283.jpg'],
         ],
         2 => [
-            ['title' => 'Human Touch Brand', 'image' => './Aset/DIT08293.jpg'],
-            ['title' => 'Human Touch Brand', 'image' => './Aset/DIT08305.jpg'],
-            ['title' => 'Human Touch Brand', 'image' => './Aset/DIT08316.jpg'],
-            ['title' => 'Human Touch Brand', 'image' => './Aset/DIT08319.jpg'],
-            ['title' => 'Human Touch Brand', 'image' => './Aset/DIT08339.jpg'],
+            ['title' => 'Human Touch Brand', 'image' => './assets/images/DIT08293.jpg'],
+            ['title' => 'Human Touch Brand', 'image' => './assets/images/DIT08305.jpg'],
+            ['title' => 'Human Touch Brand', 'image' => './assets/images/DIT08316.jpg'],
+            ['title' => 'Human Touch Brand', 'image' => './assets/images/DIT08319.jpg'],
+            ['title' => 'Human Touch Brand', 'image' => './assets/images/DIT08339.jpg'],
         ],
         3 => [
-            ['title' => 'Take A Break With Noma', 'image' => './Aset/DIT08004.jpg'],
-            ['title' => 'Take A Break With Noma', 'image' => './Aset/DIT01161.jpg'],
+            ['title' => 'Take A Break With Noma', 'image' => './assets/images/DIT08004.jpg'],
+            ['title' => 'Take A Break With Noma', 'image' => './assets/images/DIT01161.jpg'],
         ],
     ];
 
@@ -119,6 +119,6 @@
     <?php endforeach; ?>
 
     <?php include 'footer.php'; ?> 
-    <script src="./js/gallery.js"></script>
+    <script src="./assets/js/gallery.js"></script>
 </body>
 </html>

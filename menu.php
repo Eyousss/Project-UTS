@@ -121,6 +121,6 @@
         </div>
     </section>
     <?php include 'footer.php'; ?>
-    <script src="./js/Menu.js"></script>
+    <script src="./assets/js/Menu.js"></script>
 </body>
 </html>

@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save'])) {
     $image_path = '';
     $full_path = '';
     if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-        $upload_dir = '../../Aset/upload_image/';
+        $upload_dir = '../../assets/images/upload_image/';
 
         if (!is_dir($upload_dir)) {
             mkdir($upload_dir, 0755, true);

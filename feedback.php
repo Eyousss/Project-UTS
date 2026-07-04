@@ -73,6 +73,6 @@
 
     </section>
     <?php include 'footer.php'; ?> 
-    <script src="./js/feedback.js"></script>
+    <script src="./assets/js/feedback.js"></script>
 </body>
 </html>

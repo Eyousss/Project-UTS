@@ -28,7 +28,7 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
         exit;
     }
 
-    $uploadDir = dirname(__DIR__, 2) . '/Aset/upload_news_image';
+    $uploadDir = dirname(__DIR__, 2) . '/assets/images/upload_news_image';
     if (!is_dir($uploadDir)) {
         mkdir($uploadDir, 0777, true);
     }

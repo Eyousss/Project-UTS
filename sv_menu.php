@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save'])) {
     // Handle file upload
     $image_path = '';
     if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-        $upload_dir = 'Aset/' . $category . '/';
+        $upload_dir = 'assets/images/' . $category . '/';
         
         // Pastikan folder upload ada
         if (!is_dir($upload_dir)) {

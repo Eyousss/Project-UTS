@@ -29,7 +29,7 @@ $image_path = $current_image;
 
 // Handle file upload if provided
 if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-    $upload_dir = '../../Aset/' . $category . '/';
+    $upload_dir = '../../assets/images/' . $category . '/';
     
     if (!is_dir($upload_dir)) {
         mkdir($upload_dir, 0755, true);

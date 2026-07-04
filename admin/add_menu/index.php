@@ -6,7 +6,7 @@ $deleted = isset($_GET['deleted']) && $_GET['deleted'] === '1';
 $updated = isset($_GET['updated']) && $_GET['updated'] === '1';
 $success = isset($_GET['success']) && $_GET['success'] === '1';
 $error = isset($_GET['error']) ? $_GET['error'] : '';
-$page_css = '../../css/add_menu.css';
+$page_css = '../../assets/css/add_menu.css';
 
 ?>
 <!doctype html>
@@ -14,7 +14,7 @@ $page_css = '../../css/add_menu.css';
 <head>
     <meta charset="utf-8">
     <title>Manajemen Menu</title>
-    <link rel="stylesheet" href="<?php echo $page_css; ?>">
+    <link rel="stylesheet" href="<?php echo str_replace('../../css/', '../../assets/css/', $page_css); ?>">
 </head>
 <body>
     <div class="container">

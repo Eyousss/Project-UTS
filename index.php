@@ -2,11 +2,11 @@
     include 'header.php';
 ?>
     <section id="opening">
-        <div class="slide active"><img src="Aset/IMG-Opening/IMG-Opening1.jpeg" class="opening"></div>
-        <div class="slide"><img src="Aset/IMG-Opening/IMG-Opening2.jpeg" class="opening"></div>
-        <div class="slide"><img src="Aset/IMG-Opening/IMG-Opening3.jpeg" class="opening"></div>
-        <div class="slide"><img src="Aset/IMG-Opening/IMG-Opening4.jpeg" class="opening"></div>
-        <div class="slide"><img src="Aset/IMG-Opening/IMG-Opening5.jpeg" class="opening"></div>
+        <div class="slide active"><img src="assets/images/IMG-Opening/IMG-Opening1.jpeg" class="opening"></div>
+        <div class="slide"><img src="assets/images/IMG-Opening/IMG-Opening2.jpeg" class="opening"></div>
+        <div class="slide"><img src="assets/images/IMG-Opening/IMG-Opening3.jpeg" class="opening"></div>
+        <div class="slide"><img src="assets/images/IMG-Opening/IMG-Opening4.jpeg" class="opening"></div>
+        <div class="slide"><img src="assets/images/IMG-Opening/IMG-Opening5.jpeg" class="opening"></div>
 
         <div class="opening-overlay"></div>
 
@@ -72,6 +72,6 @@ if ($newsResult) {
     </section>
 
     <?php include 'footer.php'; ?>
-    <script src="js/Homepage.js"></script>
+    <script src="assets/js/Homepage.js"></script>
 </body>
 </html>

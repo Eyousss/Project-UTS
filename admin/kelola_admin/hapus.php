@@ -53,8 +53,8 @@ if (!$username) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Konfirmasi Hapus Admin - Noma Coffee & Taichan</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/dashboard.css">
-    <link rel="stylesheet" href="../../css/navbar_admin.css">
+    <link rel="stylesheet" href="../../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../../assets/css/navbar_admin.css">>
     <style>
         .confirmation-card {
             background: #fff;

@@ -28,27 +28,40 @@ if ($gallery_query) {
 <head>
     <meta charset="utf-8">
     <title>Manajemen Galeri</title>
-    <link rel="stylesheet" href="<?php echo $page_css; ?>">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/navbar_admin.css">
+    <link rel="stylesheet" href="../../assets/css/admin_management.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="page-title">Manajemen Galeri</h1>
-        <a href="../dashboard.php" class="back-link">Kembali ke Dashboard</a>
+    <nav class="navbar">
+        <a href="#" class="logo-text">noma</a>
+        <span class="admin-label">Gallery Panel</span>
+    </nav>
+    <div class="wrapper">
+        <a href="../dashboard.php" class="back-link">← Kembali ke Dashboard</a>
+
+        <div class="content-header">
+            <div>
+                <h1>Manajemen Galeri</h1>
+            </div>
+        </div>
+        
+        <div class="table-container">
 
         <?php if ($success): ?>
-            <p class="alert alert-success">Foto galeri berhasil disimpan.</p>
+            <div class="alert success">Foto galeri berhasil disimpan.</div>
         <?php endif; ?>
 
         <?php if ($updated): ?>
-            <p class="alert alert-success">Foto galeri berhasil diperbarui.</p>
+            <div class="alert success">Foto galeri berhasil diperbarui.</div>
         <?php endif; ?>
 
         <?php if ($error): ?>
-            <p class="alert alert-error"><?php echo htmlspecialchars($error); ?></p>
+            <div class="alert error"><?php echo htmlspecialchars($error); ?></div>
         <?php endif; ?>
 
-        <div class="card">
-            <h2>Tambah Galeri Baru</h2>
+        <fieldset>
+            <legend>Tambah Galeri Baru</legend>
 
             <form action="add_gallery.php" method="post" enctype="multipart/form-data">
                 <label for="title">Judul Foto</label>
@@ -70,13 +83,12 @@ if ($gallery_query) {
 
                 <button type="submit" name="save">Simpan Galeri</button>
             </form>
-        </div>
+        </fieldset>
 
-        <div class="card">
-            <h2>Daftar Galeri</h2>
+        <h2>Daftar Galeri</h2>
 
-            <?php if (!empty($gallery_items)): ?>
-                <table>
+        <?php if (!empty($gallery_items)): ?>
+            <table>
                     <thead>
                         <tr>
                             <th>No</th>
@@ -116,17 +128,21 @@ if ($gallery_query) {
                                     <img src="../../<?php echo htmlspecialchars($item['image']); ?>" alt="<?php echo htmlspecialchars($item['title']); ?>">
                                 </td>
                                 <td><?php echo htmlspecialchars($item['created_at']); ?></td>
-                                <td class="action-buttons">
-                                    <a href="edit.php?id=<?php echo (int)$item['id']; ?>" class="btn-edit">Edit</a>
-                                    <a href="hapus.php?id=<?php echo (int)$item['id']; ?>" class="btn-delete" onclick="return confirm('Yakin ingin menghapus foto ini?')">Hapus</a>
+                                <td>
+                                    <div class="action-buttons">
+                                        <a href="edit.php?id=<?php echo (int)$item['id']; ?>" class="btn-edit">Edit</a>
+                                        <a href="hapus.php?id=<?php echo (int)$item['id']; ?>" class="btn-delete" onclick="return confirm('Yakin ingin menghapus foto ini?')">Hapus</a>
+                                    </div>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-            <?php else: ?>
-                <p class="empty-state">Belum ada galeri.</p>
-            <?php endif; ?>
+        <?php else: ?>
+            <div class="empty-state">
+                <p>Belum ada galeri.</p>
+            </div>
+        <?php endif; ?>
         </div>
     </div>
 

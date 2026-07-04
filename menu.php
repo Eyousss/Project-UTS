@@ -1,6 +1,6 @@
 <?php
     $page_title = 'Menu — Noma Coffee & Taichan';
-    $page_css   = './css/Menu.css';
+    $page_css   = './assets/css/Menu.css';
     include 'header.php';
     include 'koneksi.php';
 

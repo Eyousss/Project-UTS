@@ -1,6 +1,6 @@
 <?php
     $page_title = 'Feedback — Noma Coffee & Taichan';
-    $page_css   = './css/feedback.css';
+    $page_css   = './assets/css/feedback.css';
     include 'header.php';
 ?>
 

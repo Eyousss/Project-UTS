@@ -1,4 +1,5 @@
 <?php
+    $page_css = 'assets/css/Homepage.css';
     include 'header.php';
 ?>
     <section id="opening">
@@ -11,11 +12,11 @@
         <div class="opening-overlay"></div>
 
         <div class="opening-content">
-            <img src="./Aset/Logo.png" class="opening-logo" alt="Noma Coffee & Taichan">
+            <img src="assets/images/Logo.png" class="opening-logo" alt="Noma Coffee & Taichan">
             <p class="opening-tagline">Coffee &amp; Taichan</p>
             <p class="opening-tagline">Nongkrong-Makan baru lanjut</p>
             <div class="opening-divider"></div>
-            <a href="./Menu/Menu.html" class="opening-cta">Lihat Menu</a>
+            <a href="menu.php" class="opening-cta">Lihat Menu</a>
         </div>
     </section>
 

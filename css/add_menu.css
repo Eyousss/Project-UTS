@@ -27,12 +27,12 @@ body {
 .back-link {
   display: inline-block;
   margin-bottom: 24px;
-  color: #c4845a;
+  color: #3b2416;
   font-weight: 600;
 }
 
 .back-link:hover {
-  color: #a8663e;
+  color: #8b4a2f;
 }
 
 .alert {
@@ -97,7 +97,7 @@ select:focus {
 }
 
 button {
-  background: #c4845a;
+  background: #3b2416;
   color: #fff;
   border: none;
   cursor: pointer;
@@ -106,7 +106,7 @@ button {
 }
 
 button:hover {
-  background: #a8663e;
+  background: #8b4a2f;
 }
 
 .helper-text {
@@ -166,7 +166,7 @@ td img {
 }
 
 .action-buttons a:last-child {
-  background: #c84f4f;
+  background: #790b0b;
 }
 
 .action-buttons a:hover{

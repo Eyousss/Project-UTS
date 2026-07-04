@@ -105,9 +105,9 @@ a{
 
 .tab-btn:hover,
 .tab-btn.active {
-    background: #333;
+    background: #3b2416;
     color: #fff;
-    border-color: #333;
+    border-color: #3b2416;
 }
 
 .menu-grid {

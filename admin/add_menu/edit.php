@@ -25,6 +25,7 @@ if (!$rid) {
 <head>
     <meta charset="utf-8">
     <title>Edit Menu</title>
+    <link rel="stylesheet" href="../../assets/css/add_menu.css">
     <style>label{display:block;margin-top:8px}input[type=text],input[type=file],select{width:100%;padding:6px}img{max-width:150px;max-height:150px;margin-top:10px}</style>
 </head>
 <body>

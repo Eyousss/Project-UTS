@@ -1,6 +1,6 @@
 <?php
 include '../security.php';
-$koneksi_path = __DIR__ . '/../../koneksi.php';
+$koneksi_path = '../../koneksi.php';
 if (file_exists($koneksi_path)) {
     include $koneksi_path;
 }
@@ -11,6 +11,7 @@ if (!isset($conn) || !($conn instanceof mysqli)) {
 }
 
 $success = isset($_GET['success']) && $_GET['success'] === '1';
+$updated = isset($_GET['updated']) && $_GET['updated'] === '1';
 $error = isset($_GET['error']) ? $_GET['error'] : '';
 $page_css = '../../assets/css/add_gallery.css';
 
@@ -38,6 +39,10 @@ if ($gallery_query) {
             <p class="alert alert-success">Foto galeri berhasil disimpan.</p>
         <?php endif; ?>
 
+        <?php if ($updated): ?>
+            <p class="alert alert-success">Foto galeri berhasil diperbarui.</p>
+        <?php endif; ?>
+
         <?php if ($error): ?>
             <p class="alert alert-error"><?php echo htmlspecialchars($error); ?></p>
         <?php endif; ?>
@@ -59,12 +64,6 @@ if ($gallery_query) {
 
                 <label for="new_section_name" id="new-section-label" class="hidden">Nama Section Baru</label>
                 <input type="text" id="new_section_name" name="new_section_name" placeholder="Masukkan nama section baru" class="hidden">
-
-                <label for="position">Posisi Gambar</label>
-                <select id="position" name="position" required>
-                    <option value="right">Right</option>
-                    <option value="left">Left</option>
-                </select>
 
                 <label for="image">Foto Galeri</label>
                 <input type="file" id="image" name="image" accept="image/*" required>
@@ -117,10 +116,9 @@ if ($gallery_query) {
                                     <img src="../../<?php echo htmlspecialchars($item['image']); ?>" alt="<?php echo htmlspecialchars($item['title']); ?>">
                                 </td>
                                 <td><?php echo htmlspecialchars($item['created_at']); ?></td>
-                                <td>
-                                    <a href="hapus.php?id=<?php echo $item['id']; ?>" class="button button-delete" onclick="return confirm('Yakin ingin menghapus foto galeri ini?');">
-                                        Hapus
-                                    </a>
+                                <td class="action-buttons">
+                                    <a href="edit.php?id=<?php echo (int)$item['id']; ?>" class="btn-edit">Edit</a>
+                                    <a href="hapus.php?id=<?php echo (int)$item['id']; ?>" class="btn-delete" onclick="return confirm('Yakin ingin menghapus foto ini?')">Hapus</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

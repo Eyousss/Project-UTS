@@ -123,10 +123,25 @@ table {
   overflow: hidden;
 }
 
+tr {
+  border-bottom: 1px solid #eee2d8;
+}
+
+tr:last-child {
+  border-bottom: none;
+}
+
 th,
 td {
   padding: 12px 14px;
-  border-bottom: 1px solid #eee2d8;
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: none;
+}
+
+th,
+td {
+  padding: 12px 14px;
   text-align: left;
   vertical-align: middle;
 }
@@ -146,18 +161,24 @@ td img {
 a.button,
 td a {
   display: inline-block;
-  padding: 7px 10px;
+  width: 70px;
+  padding: 7px 0;
   background: #2d89ef;
   color: #fff;
   text-decoration: none;
   border-radius: 8px;
-  margin-right: 4px;
+  margin-right: 6px;
   font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
 }
 
-a.button-delete,
-td a.button-delete {
+td a:last-child {
   background: #c84f4f;
+}
+
+td a:hover {
+  opacity: 0.85;
 }
 
 .empty-state {
@@ -191,4 +212,37 @@ td a.button-delete {
     overflow-x: auto;
     white-space: nowrap;
   }
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-edit,
+.btn-delete {
+    width: 80px;
+    padding: 8px 0;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    transition: .2s;
+}
+
+.btn-edit {
+    background: #2d89ef;
+}
+
+.btn-edit:hover {
+    background: #1d6fc8;
+}
+
+.btn-delete {
+    background: #c84f4f;
+}
+
+.btn-delete:hover {
+    background: #a63b3b;
 }

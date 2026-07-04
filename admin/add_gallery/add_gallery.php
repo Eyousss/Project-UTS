@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save'])) {
         }
 
         $new_filename = time() . '_' . preg_replace('/[^a-zA-Z0-9_-]/', '_', strtolower($title)) . '.' . $file_ext;
-        $image_path = 'Aset/upload_image/' . $new_filename;
+        $image_path = 'assets/images/upload_image/' . $new_filename;
         $full_path = $upload_dir . $new_filename;
 
         if (!move_uploaded_file($file_tmp, $full_path)) {

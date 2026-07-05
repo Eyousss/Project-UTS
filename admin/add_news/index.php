@@ -52,6 +52,7 @@ $res = mysqli_query($conn, $query);
             <fieldset>
                 <legend>Tambah News Baru</legend>
                 <form action="sv_news.php" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="action" value="create">
                     <label for="title">Judul</label>
                     <input type="text" id="title" name="title" required>
 

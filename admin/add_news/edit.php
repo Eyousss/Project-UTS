@@ -51,7 +51,8 @@ if (!$news) {
         <div class="table-container">
             <fieldset>
                 <legend>Edit News</legend>
-                <form action="sv_edit.php" method="post" enctype="multipart/form-data">
+                <form action="sv_news.php" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="action" value="update">
                     <input type="hidden" name="id" value="<?php echo $news['id']; ?>">
                     <label for="title">Judul</label>
                     <input type="text" id="title" name="title" value="<?php echo htmlspecialchars($news['title']); ?>" required>

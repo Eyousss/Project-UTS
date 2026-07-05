@@ -74,6 +74,7 @@ if ($gallery_query) {
                     <option value="3">Take A Break With Noma</option>\
                 </select>
 
+
                 <label for="image">Foto Galeri</label>
                 <input type="file" id="image" name="image" accept="image/*" required>
 

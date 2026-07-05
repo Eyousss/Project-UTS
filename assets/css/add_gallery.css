@@ -69,6 +69,16 @@ body {
   color: #361818;
 }
 
+.card img,
+.preview-image {
+  width: 180px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  margin: 10px 0 20px;
+}
+
 form {
   display: grid;
   gap: 14px;
@@ -127,7 +137,7 @@ tr {
   border-bottom: 1px solid #eee2d8;
 }
 
-tr:last-child {
+t r:last-child {
   border-bottom: none;
 }
 

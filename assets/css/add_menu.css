@@ -69,6 +69,15 @@ body {
   color: #361818;
 }
 
+.card img {
+  max-width: 320px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  margin: 16px 0;
+}
+
 form {
   display: grid;
   gap: 14px;
@@ -166,4 +175,11 @@ td a:last-child {
   background: #fff;
   border-radius: 12px;
   border: 1px solid #eee2d8;
+}
+
+.table-img {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
 }

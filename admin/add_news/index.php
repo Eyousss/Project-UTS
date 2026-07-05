@@ -1,6 +1,14 @@
 <?php
 include '../security.php';
-include '../../koneksi.php';
+$koneksi_path = '../../koneksi.php';
+if (file_exists($koneksi_path)) {
+    include $koneksi_path;
+}
+
+if (!isset($conn) || !($conn instanceof mysqli)) {
+    $conn = mysqli_connect('localhost', 'root', '', 'backend_noma');
+    mysqli_set_charset($conn, 'utf8');
+}
 
 $created = isset($_GET['created']) && $_GET['created'] === '1';
 $updated = isset($_GET['updated']) && $_GET['updated'] === '1';
@@ -18,6 +26,7 @@ $res = mysqli_query($conn, $query);
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/navbar_admin.css">
     <link rel="stylesheet" href="../../assets/css/admin_management.css">
+    <link rel="stylesheet" href="../../assets/css/add_news.css">
     <title>Manajemen News</title>
 </head>
 <body>
@@ -74,7 +83,12 @@ $res = mysqli_query($conn, $query);
                                 <td><?php echo $no++; ?></td>
                                 <td><?php echo htmlspecialchars($row['title']); ?></td>
                                 <td><?php echo nl2br(htmlspecialchars($row['description'])); ?></td>
-                                <td><?php echo htmlspecialchars($row['image']); ?></td>
+                                <td>
+                                    <img 
+                                        src="../../<?php echo str_replace('\\', '/', htmlspecialchars($row['image'])); ?>" 
+                                        alt="<?php echo htmlspecialchars($row['title']); ?>"
+                                        class="table-img">
+                                </td>
                                 <td><?php echo htmlspecialchars($row['button_text']); ?><br><?php echo htmlspecialchars($row['button_url']); ?></td>
                                 <td><?php echo htmlspecialchars($row['created_at']); ?></td>
                                 <td>

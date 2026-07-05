@@ -112,7 +112,7 @@ $currentSectionValue = $rsection_name !== null && $rsection_name !== '' ? 'new' 
 <head>
     <meta charset="utf-8">
     <title>Edit Galeri</title>
-    <link rel="stylesheet" href="../../assets/css/add_menu.css">
+    <link rel="stylesheet" href="../../assets/css/add_gallery.css">
 </head>
 <body>
     <div class="container">
@@ -135,7 +135,7 @@ $currentSectionValue = $rsection_name !== null && $rsection_name !== '' ? 'new' 
                 </select>
 
                 <label>Foto Saat Ini</label>
-                <img src="../../<?php echo htmlspecialchars((string) $rimage); ?>" alt="<?php echo htmlspecialchars((string) $rtitle); ?>">
+                <img id="current-image-preview" class="preview-image" src="../../<?php echo htmlspecialchars((string) $rimage); ?>" alt="<?php echo htmlspecialchars((string) $rtitle); ?>">
 
                 <label for="image">Ganti Foto (Opsional)</label>
                 <input type="file" id="image" name="image" accept="image/*">
@@ -150,6 +150,8 @@ $currentSectionValue = $rsection_name !== null && $rsection_name !== '' ? 'new' 
             var sectionSelect = document.getElementById('section');
             var newSectionLabel = document.getElementById('new-section-label');
             var newSectionInput = document.getElementById('new_section_name');
+            var imageInput = document.getElementById('image');
+            var currentPreview = document.getElementById('current-image-preview');
 
             function toggleNewSection() {
                 if (sectionSelect.value === 'new') {
@@ -162,6 +164,25 @@ $currentSectionValue = $rsection_name !== null && $rsection_name !== '' ? 'new' 
                     newSectionInput.required = false;
                     newSectionInput.value = '';
                 }
+            }
+
+            function previewImage(file) {
+                if (!file || !currentPreview) {
+                    return;
+                }
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    currentPreview.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+
+            if (imageInput) {
+                imageInput.addEventListener('change', function () {
+                    if (this.files && this.files[0]) {
+                        previewImage(this.files[0]);
+                    }
+                });
             }
 
             sectionSelect.addEventListener('change', toggleNewSection);

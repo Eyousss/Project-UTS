@@ -31,7 +31,7 @@ $res = mysqli_query($conn, $query);
 </head>
 <body>
     <nav class="navbar">
-        <a href="#" class="logo-text">noma</a>
+        <a href="../../admin/dashboard.php" class="logo-text">noma</a>
         <span class="admin-label">News Panel</span>
     </nav>
     <div class="wrapper">

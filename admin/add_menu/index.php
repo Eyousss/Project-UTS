@@ -21,7 +21,7 @@ $page_css = '../../assets/css/add_menu.css';
 <body>
 
     <nav class="navbar">
-        <a href="#" class="logo-text">noma</a>
+        <a href="../../admin/dashboard.php" class="logo-text">noma</a>
         <span class="admin-label">Menu Panel</span>
     </nav>
     <div class="wrapper">

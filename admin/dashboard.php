@@ -82,6 +82,10 @@ include "security.php";
             <p>Kelola akun admin dan owner (hanya owner yang dapat mengakses)</p>
             <a href="kelola_admin/index.php">Kelola Admin</a>
         </div>
+        <div class="nav-card">
+            <h3>Feedback Pengunjung</h3>
+            <p>Lihat dan kelola feedback dari pengunjung</p>
+            <a href="save_feedback/index.php">Kelola Feedback</a>
     </div>
  
     <div class="logout-section">

@@ -17,6 +17,7 @@ $page_css = '../../assets/css/add_menu.css';
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/navbar_admin.css">
     <link rel="stylesheet" href="../../assets/css/admin_management.css">
+    <link rel="stylesheet" href="../../assets/css/add_menu.css">
 </head>
 <body>
 

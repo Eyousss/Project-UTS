@@ -53,11 +53,7 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
     }
 
     $new_filename = time() . '_' . sanitize_filename($name) . '.' . $file_ext;
-    
-    // =========================================================================
-    // PERBAIKAN DI SINI: Samakan dengan folder assets agar database mencatat dengan benar
-    // =========================================================================
-    $image_path = 'assets/images/' . $category . '/' . $new_filename; 
+    $image_path = 'Aset/' . $category . '/' . $new_filename;
     $full_path = $upload_dir . $new_filename;
 
     if (!move_uploaded_file($file_tmp, $full_path)) {

@@ -29,6 +29,7 @@ $image_path = $current_image;
 
 // Handle file upload if provided
 if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+    // 1. Pastikan folder tujuan mengarah ke assets/images/
     $upload_dir = '../../assets/images/' . $category . '/';
     
     if (!is_dir($upload_dir)) {
@@ -52,7 +53,11 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
     }
 
     $new_filename = time() . '_' . sanitize_filename($name) . '.' . $file_ext;
-    $image_path = 'Aset/' . $category . '/' . $new_filename;
+    
+    // =========================================================================
+    // PERBAIKAN DI SINI: Samakan dengan folder assets agar database mencatat dengan benar
+    // =========================================================================
+    $image_path = 'assets/images/' . $category . '/' . $new_filename; 
     $full_path = $upload_dir . $new_filename;
 
     if (!move_uploaded_file($file_tmp, $full_path)) {
@@ -60,7 +65,7 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
         exit;
     }
 
-    // Delete old image if it exists and is different
+    // Menghapus foto lama agar tidak memenuhi penyimpanan lokal Laragon Anda
     if ($current_image && $current_image !== $image_path && file_exists('../../' . $current_image)) {
         unlink('../../' . $current_image);
     }

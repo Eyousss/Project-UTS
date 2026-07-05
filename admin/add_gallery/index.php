@@ -64,7 +64,7 @@ if ($gallery_query) {
         <fieldset>
             <legend>Tambah Galeri Baru</legend>
 
-            <form action="add_gallery.php" method="post" enctype="multipart/form-data">
+            <form action="sv_gallery.php" method="post" enctype="multipart/form-data">
                 <label for="title">Judul Foto</label>
                 <input type="text" id="title" name="title" placeholder="Contoh: Daily Activity" required>
 
@@ -72,7 +72,7 @@ if ($gallery_query) {
                 <select id="section" name="section" required>
                     <option value="1">Daily Activity at Noma</option>
                     <option value="2">Human Touch Brand</option>
-                    <option value="3">Take A Break With Noma</option>\
+                    <option value="3">Take A Break With Noma</option>
                 </select>
 
 

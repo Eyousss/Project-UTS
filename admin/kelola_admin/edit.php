@@ -137,12 +137,10 @@ if (!$admin) {
             <input type="hidden" name="id" value="<?php echo $admin['id']; ?>">
 
             <div class="form-group">
-                <label>Username</label>
-                <div class="username-display">
-                    <?php echo htmlspecialchars($admin['username']); ?>
-                </div>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" value="<?php echo htmlspecialchars($admin['username']); ?>" required placeholder="Masukkan username">
                 <div class="password-note" style="margin-top: 8px;">
-                    Username tidak dapat diubah
+                    Ubah bagian ini jika ingin mengganti nama admin
                 </div>
             </div>
 

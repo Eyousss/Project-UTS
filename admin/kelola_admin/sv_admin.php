@@ -30,9 +30,6 @@ if ($action === 'add') {
         exit;
     }
 
-    // ==========================================
-    // PERUBAHAN DI SINI: Menggunakan md5() agar sama dengan sv_login.php
-    // ==========================================
     $hashed_password = md5($password);
 
     $insert_query = "INSERT INTO users (username, password, role) VALUES ('$escaped_username', '$hashed_password', '$escaped_role')";
@@ -48,24 +45,34 @@ if ($action === 'add') {
 
 if ($action === 'edit') {
     $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
+    $username = isset($_POST['username']) ? trim($_POST['username']) : '';
     $password = isset($_POST['password']) ? $_POST['password'] : '';
     $new_role = isset($_POST['role']) ? $_POST['role'] : '';
 
-    if ($id <= 0 || $new_role === '') {
+    if ($id <= 0 || $username === '' || $new_role === '') {
         header("Location: edit.php?id=$id&error=" . urlencode('Data tidak valid.'));
         exit;
     }
 
+    $escaped_username = mysqli_real_escape_string($conn, $username);
     $escaped_role = mysqli_real_escape_string($conn, $new_role);
 
+    
+    $check_query = "SELECT id FROM users WHERE username = '$escaped_username' AND id != $id";
+    $check_result = mysqli_query($conn, $check_query);
+
+    if (mysqli_num_rows($check_result) > 0) {
+        header("Location: edit.php?id=$id&error=" . urlencode('Username sudah terdaftar digunakan akun lain.'));
+        exit;
+    }
+
     if ($password !== '') {
-        // ==========================================
-        // SUDAH BENAR: Menggunakan md5() saat update password
-        // ==========================================
         $hashed_password = md5($password);
-        $update_query = "UPDATE users SET role = '$escaped_role', password = '$hashed_password' WHERE id = $id";
+       
+        $update_query = "UPDATE users SET username = '$escaped_username', role = '$escaped_role', password = '$hashed_password' WHERE id = $id";
     } else {
-        $update_query = "UPDATE users SET role = '$escaped_role' WHERE id = $id";
+        
+        $update_query = "UPDATE users SET username = '$escaped_username', role = '$escaped_role' WHERE id = $id";
     }
 
     if (mysqli_query($conn, $update_query)) {

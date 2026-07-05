@@ -19,13 +19,13 @@
         <div class="feedback-container">
             <h2 class="feedback-title">Feedback & Survei UX</h2>
             <div class="feedback-subtitle">
-            <p class="subtitle">Bantu kami meningkatkan pengalaman website Noma Coffee & Taichan.</p>
+            <p class="subtitle">Bantu kami meningkatkan pelayanan di Noma Coffee & Taichan.</p>
             </div>
         </div>
 
         <!--- Pertanyaan 1 --->
         <section class="feedback-card">
-            <p class="questions">1. Seberapa puas kamu dengan tampilan website kami?</p>
+            <p class="questions">1. Seberapa puas kamu dengan pelayanan kami?</p>
             <div class="kepuasan-row" id="kepuasan">
                 <div class="skor-kepuasan">1</div>
                 <div class="skor-kepuasan">2</div>
@@ -57,7 +57,7 @@
 
         <!--- Pertanyaan 3 --->
         <section class="feedback-card">
-            <p class="questions">3. Apakah kamu memiliki kritik dan saran untuk website kami kedepannya?</p>
+            <p class="questions">3. Apakah kamu memiliki kritik dan saran untuk pelayanan dan menu kami kedepannya?</p>
             <textarea class="saran-input" placeholder="Tulis saranmu di sini..."></textarea>
         </section>
 

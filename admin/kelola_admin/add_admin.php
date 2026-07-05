@@ -39,7 +39,7 @@ if ($role !== 'owner') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Admin - Noma Coffee & Taichan</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../../assets/css/admin_management.css">
     <link rel="stylesheet" href="../../assets/css/navbar_admin.css">
 </head>
 <body>

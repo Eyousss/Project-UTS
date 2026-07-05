@@ -44,10 +44,6 @@ body {
     color: #361818;
 }
 
-.content-header > div:first-child {
-    flex: 1;
-}
-
 .btn-add {
     display: inline-block;
     padding: 10px 20px;
@@ -90,85 +86,12 @@ body {
     border: 1px solid #f4b7b0;
 }
 
-fieldset {
-    border: 1px solid #d9c8bd;
-    border-radius: 10px;
-    padding: 24px;
-    margin-bottom: 24px;
-}
-
-fieldset legend {
-    padding: 0 10px;
-    font-weight: 600;
-    color: #361818;
-    font-size: 1rem;
-}
-
-form {
-    display: grid;
-    gap: 14px;
-}
-
-label {
-    font-weight: 600;
-    color: #4c2e2e;
-    font-size: 0.95rem;
-}
-
-input,
-select,
-textarea {
-    width: 100%;
-    padding: 12px 14px;
-    border-radius: 10px;
-    border: 1px solid #d9c8bd;
-    font-size: 0.95rem;
-    font-family: 'Quicksand', sans-serif;
-    outline: none;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-    border-color: #c4845a;
-    box-shadow: 0 0 0 3px rgba(196, 132, 90, 0.15);
-}
-
-textarea {
-    resize: vertical;
-    min-height: 100px;
-}
-
-button {
-    padding: 12px 14px;
-    background: #c4845a;
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    font-size: 0.95rem;
-    font-family: 'Quicksand', sans-serif;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background 0.2s ease;
-}
-
-button:hover {
-    background: #a8663e;
-}
-
-h2 {
-    font-size: 1.2rem;
-    margin-bottom: 16px;
-    color: #361818;
-}
-
 table {
     width: 100%;
     border-collapse: collapse;
     background: #fff;
     border-radius: 12px;
     overflow: hidden;
-    margin-top: 20px;
 }
 
 th,
@@ -185,34 +108,27 @@ th {
     font-weight: 600;
 }
 
-td img {
-    max-width: 80px;
-    max-height: 80px;
-    object-fit: cover;
-    border-radius: 6px;
-}
-
 .action-buttons {
     display: flex;
     gap: 8px;
+    flex-wrap: wrap;
 }
 
 .btn-edit,
 .btn-delete {
-    display: inline-block;
-    padding: 6px 12px;
+    width: 80px;
+    padding: 8px 0;
+    text-align: center;
     text-decoration: none;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 0.85rem;
     font-weight: 600;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s ease;
+    color: #fff;
+    transition: 0.2s ease;
 }
 
 .btn-edit {
     background: #2d89ef;
-    color: #fff;
 }
 
 .btn-edit:hover {
@@ -221,24 +137,10 @@ td img {
 
 .btn-delete {
     background: #c84f4f;
-    color: #fff;
 }
 
 .btn-delete:hover {
     background: #a93d3d;
-}
-
-.empty-state {
-    padding: 40px 20px;
-    text-align: center;
-    color: #6d4f45;
-    background: #fafaf8;
-    border-radius: 10px;
-    border: 1px solid #eee2d8;
-}
-
-.empty-state p {
-    margin-bottom: 16px;
 }
 
 .role-badge {
@@ -257,4 +159,38 @@ td img {
 .role-badge.role-admin {
     background: #d4e8f1;
     color: #3f6ba0;
+}
+
+.empty-state {
+    padding: 40px 20px;
+    text-align: center;
+    color: #6d4f45;
+    background: #fafaf8;
+    border: 1px solid #eee2d8;
+    border-radius: 10px;
+}
+
+.empty-state p {
+    margin-bottom: 16px;
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        padding: 24px 16px 40px;
+    }
+
+    .content-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .table-container {
+        padding: 18px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
 }

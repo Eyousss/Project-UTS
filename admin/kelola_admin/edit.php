@@ -114,7 +114,7 @@ if (!$admin) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Admin - Noma Coffee & Taichan</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../../assets/css/admin_management.css">
     <link rel="stylesheet" href="../../assets/css/navbar_admin.css">
 </head>
 <body>
@@ -142,7 +142,7 @@ if (!$admin) {
                     <?php echo htmlspecialchars($admin['username']); ?>
                 </div>
                 <div class="password-note" style="margin-top: 8px;">
-                    ℹ️ Username tidak dapat diubah
+                    Username tidak dapat diubah
                 </div>
             </div>
 
@@ -150,7 +150,7 @@ if (!$admin) {
                 <label for="password">Password (kosongkan jika tidak ingin diubah)</label>
                 <input type="password" id="password" name="password" placeholder="Masukkan password baru (opsional)">
                 <div class="password-note">
-                    💡 Biarkan kosong jika Anda tidak ingin mengubah password
+                    Biarkan kosong jika Anda tidak ingin mengubah password
                 </div>
             </div>
 

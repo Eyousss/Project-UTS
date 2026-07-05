@@ -117,7 +117,7 @@ th {
 .btn-edit,
 .btn-delete {
     width: 80px;
-    padding: 8px 0;
+    padding: 8px 8px;
     text-align: center;
     text-decoration: none;
     border-radius: 8px;

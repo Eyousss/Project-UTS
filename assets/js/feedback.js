@@ -1,43 +1,40 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // Pertanyaan 1 - Kepuasan
-    document.getElementById('kepuasan').addEventListener('click', function(e) {
-        var t = e.target.closest('.skor-kepuasan');
-        if (!t) return;
-        document.querySelectorAll('.skor-kepuasan').forEach(function(s) {
-            s.classList.remove('active');
-        });
-        t.classList.add('active');
-    });
+    // Rating service and menu
+    setupRatingRow('service-rating', 'service_rating_input');
+    setupRatingRow('menu-rating', 'menu_rating_input');
 
-    // Pertanyaan 2 - Kesulitan
-    document.getElementById('kesulitan').addEventListener('click', function(e) {
-        var t = e.target.closest('.skor-kesulitan');
-        if (!t) return;
-        document.querySelectorAll('.skor-kesulitan').forEach(function(s) {
-            s.classList.remove('active');
-        });
-        t.classList.add('active');
-    });
+    function setupRatingRow(rowId, inputId) {
+        var row = document.getElementById(rowId);
+        if (!row) return;
 
+        row.addEventListener('click', function(e) {
+            var target = e.target.closest('.skor-kepuasan');
+            if (!target) return;
+
+            var rating = target.textContent.trim();
+            document.querySelectorAll('#' + rowId + ' .skor-kepuasan').forEach(function(item) {
+                item.classList.remove('active');
+            });
+            target.classList.add('active');
+            document.getElementById(inputId).value = rating;
+        });
+    }
+
+    document.getElementById('feedback-form').addEventListener('submit', function(e) {
+        var serviceRating = document.getElementById('service_rating_input').value;
+        var menuRating = document.getElementById('menu_rating_input').value;
+
+        if (!serviceRating || !menuRating) {
+            e.preventDefault();
+            alert('Silakan pilih skor untuk pelayanan dan menu sebelum mengirim.');
+        }
+    });
 });
 
-function submitForm() {
-    document.getElementById('pesan-sukses').style.display = 'block';
-    document.querySelector('.btn-submit').disabled = true;
-    document.querySelector('.btn-submit').style.opacity = '0.5';
-}
-
-function submitForm() {
-    document.getElementById('pesan-sukses').style.display = 'block';
-    document.querySelector('.btn-submit').disabled = true;
-    document.querySelector('.btn-submit').style.opacity = '0.5';
-
-    // Clear semua pilihan skor
-    document.querySelectorAll('.skor-kepuasan, .skor-kesulitan').forEach(function(s) {
+function resetFeedbackForm() {
+    document.querySelectorAll('.skor-kepuasan').forEach(function(s) {
         s.classList.remove('active');
     });
-
-    // Clear textarea
-    document.querySelector('.saran-input').value = '';
+    document.getElementById('feedback-form').reset();
 }

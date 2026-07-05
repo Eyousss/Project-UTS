@@ -11,12 +11,6 @@
         }
     }
 
-    $sections = [];
-    foreach ($gallery_items as $item) {
-        $section_id = max(1, (int)($item['section'] ?? 1));
-        $sections[$section_id][] = $item;
-    }
-
     $defaultSections = [
         1 => [
             ['title' => 'Daily Activity at Noma', 'image' => './assets/images/DIT08383.jpg'],
@@ -35,32 +29,37 @@
         ],
     ];
 
-    for ($section_id = 1; $section_id <= 3; $section_id++) {
-        if (!isset($sections[$section_id])) {
-            $sections[$section_id] = [];
-        }
-    }
-
     $sectionTitles = [
         1 => ['title' => 'Daily Activity at Noma', 'description' => 'Tempat terbaik untuk bersantai, bekerja, dan menikmati momen bersama orang-orang tersayang.'],
         2 => ['title' => 'Human Touch Brand', 'description' => 'Dibuat oleh manusia, untuk manusia. Dengan penuh perhatian di setiap langkahnya.'],
         3 => ['title' => 'Take A Break With Noma', 'description' => 'Slow down, you deserve a break.'],
     ];
 
-    function ensureDefaultItems(array $items, int $sectionId): array {
-        global $defaultSections;
-        $requiredCount = $sectionId === 2 ? 5 : 2;
-        if (count($items) >= $requiredCount) {
-            return $items;
+    $sectionItemCounts = [
+        1 => 2,
+        2 => 5,
+        3 => 2,
+    ];
+
+    $sections = [];
+    $availableItems = array_values(array_filter($gallery_items, static function ($item) {
+        return !empty($item['image']);
+    }));
+
+    for ($section_id = 1; $section_id <= 3; $section_id++) {
+        $sectionItems = array_values(array_filter($availableItems, static function ($item) use ($section_id) {
+            return ((int)($item['section'] ?? 1)) === $section_id;
+        }));
+
+        if (empty($sectionItems) && !empty($availableItems)) {
+            $sectionItems = $availableItems;
         }
 
-        $defaultItems = $defaultSections[$sectionId] ?? [];
-        return array_merge($items, array_slice($defaultItems, 0, $requiredCount - count($items)));
-    }
-
-    foreach ($sections as $section_id => $items) {
-        if ($section_id <= 3) {
-            $sections[$section_id] = ensureDefaultItems($items, $section_id);
+        if (!empty($sectionItems)) {
+            shuffle($sectionItems);
+            $sections[$section_id] = array_slice($sectionItems, 0, min($sectionItemCounts[$section_id] ?? 2, count($sectionItems)));
+        } else {
+            $sections[$section_id] = $defaultSections[$section_id] ?? [];
         }
     }
 

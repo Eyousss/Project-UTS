@@ -11,6 +11,9 @@ body {
   color: #2f1f1a;
 }
 
+h2 {
+  padding: 24px 0px 24px; 
+}
 .container {
   max-width: 1200px;
   margin: 0 auto;

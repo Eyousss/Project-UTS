@@ -58,13 +58,13 @@ if (!$news) {
                     <input type="text" id="title" name="title" value="<?php echo htmlspecialchars($news['title']); ?>" required>
                     <label for="description">Deskripsi</label>
                     <textarea id="description" name="description" required><?php echo htmlspecialchars($news['description']); ?></textarea>
-                    <label for="image">Gambar Baru</label>
-                    <input type="file" id="image" name="image" accept="image/*">
                     <?php if (!empty($news['image'])): ?>
                         <p>Gambar saat ini:</p>
 
                         <img src="../../<?php echo str_replace('\\', '/', htmlspecialchars($news['image'])); ?>"alt="<?php echo htmlspecialchars($news['title']); ?>"class="current-image">
                     <?php endif; ?>
+                    <label for="image">Gambar Baru</label>
+                    <input type="file" id="image" name="image" accept="image/*">
                     <label for="button_text">Teks Tombol</label>
                     <input type="text" id="button_text" name="button_text" value="<?php echo htmlspecialchars($news['button_text']); ?>">
                     <label for="button_url">URL Tombol</label>

@@ -71,12 +71,8 @@ if ($gallery_query) {
                 <select id="section" name="section" required>
                     <option value="1">Daily Activity at Noma</option>
                     <option value="2">Human Touch Brand</option>
-                    <option value="3">Take A Break With Noma</option>
-                    <option value="new">Section Baru</option>
+                    <option value="3">Take A Break With Noma</option>\
                 </select>
-
-                <label for="new_section_name" id="new-section-label" class="hidden">Nama Section Baru</label>
-                <input type="text" id="new_section_name" name="new_section_name" placeholder="Masukkan nama section baru" class="hidden">
 
                 <label for="image">Foto Galeri</label>
                 <input type="file" id="image" name="image" accept="image/*" required>

@@ -84,6 +84,7 @@ body {
 
 .logout-btn {
     display: inline-block;
+    margin-top: 120px;
     text-decoration: none;
     background: transparent;
     color: #8b4a2f;

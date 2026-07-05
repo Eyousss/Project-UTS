@@ -30,7 +30,10 @@ if ($action === 'add') {
         exit;
     }
 
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    // ==========================================
+    // PERUBAHAN DI SINI: Menggunakan md5() agar sama dengan sv_login.php
+    // ==========================================
+    $hashed_password = md5($password);
 
     $insert_query = "INSERT INTO users (username, password, role) VALUES ('$escaped_username', '$hashed_password', '$escaped_role')";
 
@@ -56,7 +59,10 @@ if ($action === 'edit') {
     $escaped_role = mysqli_real_escape_string($conn, $new_role);
 
     if ($password !== '') {
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        // ==========================================
+        // SUDAH BENAR: Menggunakan md5() saat update password
+        // ==========================================
+        $hashed_password = md5($password);
         $update_query = "UPDATE users SET role = '$escaped_role', password = '$hashed_password' WHERE id = $id";
     } else {
         $update_query = "UPDATE users SET role = '$escaped_role' WHERE id = $id";

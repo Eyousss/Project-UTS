@@ -33,6 +33,7 @@ mysqli_stmt_bind_param($stmt, 'i', $id);
 mysqli_stmt_execute($stmt);
 mysqli_stmt_bind_result($stmt, $rid, $rtitle, $rimage, $rsection, $rsection_name, $rposition);
 mysqli_stmt_fetch($stmt);
+mysqli_stmt_close($stmt);
 
 if (!$rid) {
     header('Location: index.php?error=' . urlencode('Data galeri tidak ditemukan.'));

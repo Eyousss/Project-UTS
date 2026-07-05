@@ -9,7 +9,6 @@ body {
   min-height: 100vh;
   background: #f7f2eb;
   color: #2f1f1a;
-  padding: 32px 24px 48px;
 }
 
 .container {
@@ -137,7 +136,7 @@ tr {
   border-bottom: 1px solid #eee2d8;
 }
 
-t r:last-child {
+tr:last-child {
   border-bottom: none;
 }
 
@@ -255,4 +254,19 @@ td a:hover {
 
 .btn-delete:hover {
     background: #a63b3b;
+}
+
+fieldset {
+    border: none !important;
+    margin: 0;
+    padding: 0;
+    min-inline-size: 0;
+}
+
+legend {
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #361818;
 }

@@ -10,32 +10,6 @@ include "security.php";
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/navbar_admin.css">
     <link rel="stylesheet" href="../assets/css/dashboard.css">
-    <style>
-        .notification {
-            padding: 15px 20px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            animation: slideDown 0.3s ease-out;
-        }
-
-        .notification.success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-            border-left: 4px solid #28a745;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
 </head>
 <body>
  

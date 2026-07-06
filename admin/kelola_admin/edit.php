@@ -61,15 +61,9 @@ if ($role !== 'owner') {
         </style>
     </head>
     <body>
-        <div class="alert-container">
-            <div class="alert-box">
-                <h2>⚠️ Akses Ditolak</h2>
-                <p>Maaf, Anda tidak bisa mengakses halaman ini. Hanya owner yang dapat mengedit admin.</p>
-                <a href="../dashboard.php">Kembali ke Dashboard</a>
-            </div>
-        </div>
         <script>
-            alert('Maaf tidak bisa mengakses');
+            alert('Maaf, Anda tidak bisa mengakses halaman ini.');
+            window.location.href = "../dashboard.php";
         </script>
     </body>
     </html>
@@ -120,7 +114,7 @@ if (!$admin) {
 <body>
 
 <nav class="navbar">
-    <a href="#" class="logo-text">noma</a>
+    <a href="../../admin/dashboard.php" class="logo-text">noma</a>
     <span class="admin-label">Admin Panel</span>
 </nav>
 

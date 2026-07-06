@@ -48,75 +48,7 @@
 
                     </a>
                 <?php endforeach; ?>
-                        <a class="menu-card" data-category="makanan" target="_blank" href="https://food.grab.com/id/en/restaurant/noma-coffee-taichan-akcaya-delivery/6-C7VJE6BKJGNTMA?sourceID=20251226_130710_5364ccee9a0145128cb3ddc96a24bcd3_MEXMPS">
-                            <img src="./assets/images/makanan/mie-nyemek.png" alt="Chicken Salted Egg">
-                            <p>Mie Nyemek</p>
-                        </a>
-                        <a class="menu-card" data-category="makanan" target="_blank" href="https://food.grab.com/id/en/restaurant/noma-coffee-taichan-akcaya-delivery/6-C7VJE6BKJGNTMA?sourceID=20251226_130710_5364ccee9a0145128cb3ddc96a24bcd3_MEXMPS">
-                            <img src="./assets/images/makanan/nasgor-seafood.png" alt="Nasi Goreng Seafood">
-                            <p>Nasi Goreng Seafood</p>
-                        </a>    
-                        <a class="menu-card" data-category="makanan" target="_blank" href="https://food.grab.com/id/en/restaurant/noma-coffee-taichan-akcaya-delivery/6-C7VJE6BKJGNTMA?sourceID=20251226_130710_5364ccee9a0145128cb3ddc96a24bcd3_MEXMPS">
-                            <img src="./assets/images/makanan/nasgor-embah.png" alt="Nasi Goreng Telur">
-                            <p>Nasi Goreng Embah</p>
-                        </a>
-                        <a class="menu-card" data-category="makanan" target="_blank" href="https://food.grab.com/id/en/restaurant/noma-coffee-taichan-akcaya-delivery/6-C7VJE6BKJGNTMA?sourceID=20251226_130710_5364ccee9a0145128cb3ddc96a24bcd3_MEXMPS">
-                            <img src="./assets/images/makanan/nasgor.png" alt="Nasi Goreng">
-                            <p>Nasi Goreng</p>
-                        </a>
-                        <a class="menu-card" data-category="makanan" target="_blank" href="https://food.grab.com/id/en/restaurant/noma-coffee-taichan-akcaya-delivery/6-C7VJE6BKJGNTMA?sourceID=20251226_130710_5364ccee9a0145128cb3ddc96a24bcd3_MEXMPS">
-                            <img src="./assets/images/makanan/nasi-bakar.png" alt="Nasi Bakar">
-                            <p>Nasi Bakar</p>
-                        </a>
-                        <a class="menu-card" data-category="makanan" target="_blank" href="https://food.grab.com/id/en/restaurant/noma-coffee-taichan-akcaya-delivery/6-C7VJE6BKJGNTMA?sourceID=20251226_130710_5364ccee9a0145128cb3ddc96a24bcd3_MEXMPS">
-                            <img src="./assets/images/makanan/sambal-matah.png" alt="Nasi Ayam Sambal Matah">
-                            <p>Nasi Ayam Sambal Matah</p>
-                        </a>
-                        <a class="menu-card" data-category="makanan" target="_blank" href="https://food.grab.com/id/en/restaurant/noma-coffee-taichan-akcaya-delivery/6-C7VJE6BKJGNTMA?sourceID=20251226_130710_5364ccee9a0145128cb3ddc96a24bcd3_MEXMPS">
-                            <img src="./assets/images/makanan/Kwetiau.jpeg" alt="Kwetiau">
-                            <p>Kwetiau Goreng Seafood</p>
-                        </a>
-                        <a class="menu-card" data-category="makanan" target="_blank" href="https://food.grab.com/id/en/restaurant/noma-coffee-taichan-akcaya-delivery/6-C7VJE6BKJGNTMA?sourceID=20251226_130710_5364ccee9a0145128cb3ddc96a24bcd3_MEXMPS">
-                            <img src="./assets/images/makanan/taican.png" alt="Sate Taican">
-                            <p>Sate Taican</p>
-                        </a>
-                        <a class="menu-card" data-category="makanan" target="_blank" href="https://food.grab.com/id/en/restaurant/noma-coffee-taichan-akcaya-delivery/6-C7VJE6BKJGNTMA?sourceID=20251226_130710_5364ccee9a0145128cb3ddc96a24bcd3_MEXMPS">
-                            <img src="./assets/images/makanan/pisang-goreng.png" alt="Pisang Goreng">
-                            <p>Pisang Goreng Wijen</p>
-                        </a>
-
-                        <a class="menu-card" data-category="minuman" target="_blank" href="https://food.grab.com/id/en/restaurant/noma-coffee-taichan-akcaya-delivery/6-C7VJE6BKJGNTMA?sourceID=20251226_130710_5364ccee9a0145128cb3ddc96a24bcd3_MEXMPS">
-                            <img src="./assets/images/minuman/kopi-noma.png" alt="Kopi Susu Light">
-                            <p>Kopi Noma</p>
-                        </a>
-                        <a class="menu-card" data-category="minuman" target="_blank" href="https://food.grab.com/id/en/restaurant/noma-coffee-taichan-akcaya-delivery/6-C7VJE6BKJGNTMA?sourceID=20251226_130710_5364ccee9a0145128cb3ddc96a24bcd3_MEXMPS">
-                            <img src="./assets/images/minuman/kopi-susu.png" alt="Kopi Susu Light">
-                            <p>Latte</p>
-                        </a>
-                        <a class="menu-card" data-category="minuman" target="_blank" href="https://food.grab.com/id/en/restaurant/noma-coffee-taichan-akcaya-delivery/6-C7VJE6BKJGNTMA?sourceID=20251226_130710_5364ccee9a0145128cb3ddc96a24bcd3_MEXMPS">
-                            <img src="./assets/images/minuman/kopi-susu-strong.png" alt="Kopi Susu Strong">
-                            <p>Kopi Aren</p>
-                        </a>
-                        <a class="menu-card" data-category="minuman" target="_blank" href="https://food.grab.com/id/en/restaurant/noma-coffee-taichan-akcaya-delivery/6-C7VJE6BKJGNTMA?sourceID=20251226_130710_5364ccee9a0145128cb3ddc96a24bcd3_MEXMPS">
-                            <img src="./assets/images/minuman/americano.png" alt="Kopi Americano">
-                            <p>Kopi Americano</p>
-                        </a>
-                        <a class="menu-card" data-category="minuman" target="_blank" href="https://food.grab.com/id/en/restaurant/noma-coffee-taichan-akcaya-delivery/6-C7VJE6BKJGNTMA?sourceID=20251226_130710_5364ccee9a0145128cb3ddc96a24bcd3_MEXMPS">
-                            <img src="./assets/images/minuman/coklat.png" alt="Susu Coklat">
-                            <p>Susu Coklat</p>
-                        </a>
-                        <a class="menu-card" data-category="minuman" target="_blank" href="https://food.grab.com/id/en/restaurant/noma-coffee-taichan-akcaya-delivery/6-C7VJE6BKJGNTMA?sourceID=20251226_130710_5364ccee9a0145128cb3ddc96a24bcd3_MEXMPS">
-                            <img src="./assets/images/minuman/matcha.png" alt="Matcha Latte">
-                            <p>Matcha</p>
-                        </a>
-                        <a class="menu-card" data-category="minuman" target="_blank" href="https://food.grab.com/id/en/restaurant/noma-coffee-taichan-akcaya-delivery/6-C7VJE6BKJGNTMA?sourceID=20251226_130710_5364ccee9a0145128cb3ddc96a24bcd3_MEXMPS">
-                            <img src="./assets/images/minuman/biru-samudra.jpeg" alt="Biru Samudra">
-                            <p>Biru Samudra</p>
-                        </a>
-                        <a class="menu-card" data-category="minuman" target="_blank" href="https://food.grab.com/id/en/restaurant/noma-coffee-taichan-akcaya-delivery/6-C7VJE6BKJGNTMA?sourceID=20251226_130710_5364ccee9a0145128cb3ddc96a24bcd3_MEXMPS">
-                            <img src="./assets/images/minuman/mango-rush.jpeg" alt="Mango Rush">
-                            <p>Mango Rush</p>
-                    </a>
+                        
             </div>
         </div>
     </section>

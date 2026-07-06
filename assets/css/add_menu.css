@@ -69,7 +69,8 @@ body {
   color: #361818;
 }
 
-.card img {
+.card img,
+.preview-image{
   max-width: 320px;
   width: 100%;
   height: auto;
@@ -194,4 +195,19 @@ td a:last-child {
     overflow-x: auto;
     white-space: nowrap;
   }
+}
+
+fieldset {
+    border: none !important;
+    margin: 0;
+    padding: 0;
+    min-inline-size: 0;
+}
+
+legend {
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #361818;
 }
